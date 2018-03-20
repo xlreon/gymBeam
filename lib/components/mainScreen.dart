@@ -10,7 +10,7 @@ class MainScreen extends StatefulWidget {
 
 
 class MainScreenState extends State<MainScreen> {
-
+    // Current screen position
     int screenIndex = 0;
     
     final List screens = [
@@ -19,8 +19,10 @@ class MainScreenState extends State<MainScreen> {
       new PayScreen(),
     ];
 
+    // Current screen to show
     var currentScreen = new HomeScreen();
 
+    // Array of toolbar items
     final List toolbarItems = [
             new BottomNavigationBarItem(        
             icon: new Icon(Icons.home),
@@ -35,11 +37,13 @@ class MainScreenState extends State<MainScreen> {
               title: new Text("money")
             )];
 
+  // function to handle on tap of toolbar items
   void _changeScreen(int index) {
     setState(()  {
       screenIndex = index;
     }
     );
+    // change state of currently showing screen on tap on toolbar items
     switch(index) {
       case 0: currentScreen = screens[0];
       break;

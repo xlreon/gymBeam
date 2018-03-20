@@ -26,9 +26,6 @@ class GymBeam extends StatelessWidget {
       title: 'Gym Beam',
       routes: <String, WidgetBuilder>{
         '/profile': (BuildContext context) => new ProfileScreen(),
-        '/home': (BuildContext context) => new HomeScreen(),
-        '/search': (BuildContext context) => new SearchScreen(),
-        '/pay': (BuildContext context) => new PayScreen(),
       },
       // Theme setting for IOS and android
       theme: defaultTargetPlatform == TargetPlatform.iOS
