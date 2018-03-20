@@ -19,8 +19,10 @@ class GymBeam extends StatelessWidget {
           key: new Key("toolbar"),
           items: [
             new BottomNavigationBarItem(
-              icon: new Icon(Icons.favorite),
-              title: new Text("home")
+                icon: new Icon(
+                  Icons.home
+                ),
+                title: new Text("home")
             ),
             new BottomNavigationBarItem(
               icon: new Icon(Icons.search),
