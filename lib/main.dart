@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'components/mainScreen.dart';
 import 'components/profileScreen.dart';
+import 'components/homeScreen.dart';
+import 'components/searchScreen.dart';
+import 'components/payScreen.dart';
 void main() => runApp(new GymBeam());
 
 class GymBeam extends StatelessWidget {
@@ -23,6 +26,9 @@ class GymBeam extends StatelessWidget {
       title: 'Gym Beam',
       routes: <String, WidgetBuilder>{
         '/profile': (BuildContext context) => new ProfileScreen(),
+        '/home': (BuildContext context) => new HomeScreen(),
+        '/search': (BuildContext context) => new SearchScreen(),
+        '/pay': (BuildContext context) => new PayScreen(),
       },
       // Theme setting for IOS and android
       theme: defaultTargetPlatform == TargetPlatform.iOS
