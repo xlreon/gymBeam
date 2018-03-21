@@ -1,20 +1,26 @@
 import 'package:flutter/material.dart';
-
+import '../components/ProfileBanner.dart';
 class ProfileScreen extends StatefulWidget {
   @override
   ProfileScreenState createState() => new ProfileScreenState();
 }
 
 class ProfileScreenState extends State<ProfileScreen> {
-  @override
+@override
   Widget build(BuildContext context) {
     return new Scaffold(
-        appBar: new AppBar(
-          title: new Text('Profile'),
-        ),
-        body: new Center(
-            child: new Text('Profile Screen')
+      body: new Container(
+        child: new Column(
+          children: <Widget>[
+            new ProfileBanner(),
+            new Flexible(
+              child: new Center(
+                child: new Text("Profile Screen"),
+              ),
+            )
+          ],
         )
+      ),
     );
   }
 }
