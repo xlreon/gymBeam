@@ -55,16 +55,11 @@ class MainScreenState extends State<MainScreen> {
     
   }
 
+  
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        appBar: new AppBar(
-          title: new Text("Gym Beam"),
-          actions: <Widget>[
-            new IconButton(icon: new Icon(Icons.perm_identity,color: Colors.white), onPressed: () => Navigator.of(context).pushNamed('/profile')
-            )
-          ],
-        ),
       body: new Scaffold(
         body: currentScreen,
         bottomNavigationBar: Theme.of(context).platform == TargetPlatform.iOS
