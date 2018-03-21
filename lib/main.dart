@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
-import 'components/mainScreen.dart';
-import 'components/profileScreen.dart';
-import 'components/homeScreen.dart';
-import 'components/searchScreen.dart';
-import 'components/payScreen.dart';
+import 'screens/mainScreen.dart';
+import 'screens/profileScreen.dart';
 void main() => runApp(new GymBeam());
 
 class GymBeam extends StatelessWidget {
