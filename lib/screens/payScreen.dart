@@ -1,17 +1,26 @@
 import 'package:flutter/material.dart';
-
+import '../components/banner.dart';
 class PayScreen extends StatefulWidget {
   @override
   PayScreenState createState() => new PayScreenState();
 }
 
 class PayScreenState extends State<PayScreen> {
-  @override
+@override
   Widget build(BuildContext context) {
     return new Scaffold(
-        body: new Center(
-            child: new Text('Pay Screen')
+      body: new Container(
+        child: new Column(
+          children: <Widget>[
+            new BannerComponent(),
+            new Flexible(
+              child: new Center(
+                child: new Text("Pay Screen"),
+              ),
+            )
+          ],
         )
+      ),
     );
   }
 }
