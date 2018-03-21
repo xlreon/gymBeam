@@ -1,32 +1,19 @@
 import 'package:flutter/material.dart';
 import '../components/resources/BannerColors.dart';
 
-class Banner extends StatefulWidget {
+class BannerComponent extends StatefulWidget {
   @override
   BannerState createState() => new BannerState();
 }
 
-class BannerState extends State<Banner> {
+class BannerState extends State<BannerComponent> {
 @override
   Widget build(BuildContext context) {
     final topPadding = MediaQuery
         .of(context)
         .padding
         .top;
-
-    final headerGradient = new RadialGradient(
-      center: Alignment.topLeft,
-      radius: 0.4,
-      colors: <Color>[
-        const Color(0xFF8860EB),
-        const Color(0xFF8881EB),
-      ],
-      stops: <double>[
-        0.4, 1.0,
-      ],
-      tileMode: TileMode.repeated,
-    );
-
+        
     const headerHeight = 290.0;
 
     return new Container(
