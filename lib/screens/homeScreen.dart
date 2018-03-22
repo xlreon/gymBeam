@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../components/banner.dart';
+import '../components/HomeBanner.dart';
 class HomeScreen extends StatefulWidget {
   @override
   HomeScreenState createState() => new HomeScreenState();
