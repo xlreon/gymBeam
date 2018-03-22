@@ -78,7 +78,7 @@ class ProfileBannerState extends State<ProfileBanner> {
                           image: new DecorationImage(
                               image: new AssetImage("assets/images/rohan.jpg"),
                               fit: BoxFit.cover),
-                          borderRadius: new BorderRadius.all(new Radius.circular(20.0)),
+                          borderRadius: new BorderRadius.all(new Radius.circular(40.0)),
                           boxShadow: <BoxShadow>[
                             new BoxShadow(
                                 color: Colors.black26, blurRadius: 5.0, spreadRadius: 1.0),
@@ -87,9 +87,9 @@ class ProfileBannerState extends State<ProfileBanner> {
                       ),
                     ),
                   ),
-                  new Text("Rohan Panda",textScaleFactor: 2.0,style: new TextStyle(fontWeight: FontWeight.bold)),
-                  new Text("rohan.panda1@gmail.com",textScaleFactor: 1.3),
-                  new Text("9853355155",textScaleFactor: 1.3),
+                  new Text("Rohan Panda",style: new TextStyle(fontSize: 32.0,fontWeight: FontWeight.w700)),
+                  new Text("rohan.panda1@gmail.com",style: new TextStyle(fontSize: 16.0,fontWeight: FontWeight.w400)),
+                  new Text("9853355155",style: new TextStyle(fontSize: 16.0,fontWeight: FontWeight.w400)),
                 ],
               ),
             ),
