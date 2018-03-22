@@ -63,11 +63,10 @@ class BannerState extends State<BannerComponent> {
                 controller:  _textController,
                 decoration: new InputDecoration(
                 hintText: "Search Gym",
+                filled: true,
                 fillColor: Colors.white,
-                prefixIcon: new Icon(Icons.search,size: 30.0),
-                border: new OutlineInputBorder(
-                  borderRadius: new BorderRadius.circular(20.0)
-                )
+                prefixIcon: new Icon(Icons.search,size: 25.0),
+                border: new UnderlineInputBorder()
               ),
             ),
             ),
