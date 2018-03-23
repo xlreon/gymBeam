@@ -33,21 +33,21 @@ class BannerState extends State<BannerComponent> {
         fit: StackFit.expand,
         children: <Widget>[
           // linear gradient
-          // new Container(
-          //   height: headerHeight,
-          //   decoration: new BoxDecoration(
-          //     gradient: new LinearGradient(
-          //         colors: <Color>[ //7928D1
-          //           const Color.fromRGBO(58, 159, 229, 1.0), const Color.fromRGBO(97, 178, 229, 1.0)],
-          //         stops: <double>[0.3, 0.5],
-          //         begin: Alignment.topRight, end: Alignment.bottomLeft
-          //     ),
-          //   ),
-          // ),
-          // // radial gradient
-          // new CustomPaint(
-          //   painter: new HeaderGradientPainter(),
-          // ),
+          new Container(
+            height: headerHeight,
+            decoration: new BoxDecoration(
+              gradient: new LinearGradient(
+                  colors: <Color>[ //7928D1
+                    const Color.fromRGBO(58, 159, 229, 1.0), const Color.fromRGBO(97, 178, 229, 1.0)],
+                  stops: <double>[0.3, 0.5],
+                  begin: Alignment.topRight, end: Alignment.bottomLeft
+              ),
+            ),
+          ),
+          // radial gradient
+          new CustomPaint(
+            painter: new HeaderGradientPainter(),
+          ),
           // new Container(
           //   child: new Image.asset("assets/images/1.jpg"),
           // ),
@@ -59,21 +59,27 @@ class BannerState extends State<BannerComponent> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[                
                 _buildProfileIcon(),
-                new Padding(
-                  padding: new EdgeInsets.only(
-                  top: 100.0, left: 25.0, right: 25.0, bottom: 0.0),
-                  child: new TextField(
-                    controller:  _textController,
-                    decoration: new InputDecoration(
-                      hintText: "Search Gym nearby you",
-                      prefixIcon: new IconButton(
-                        icon: new Icon(Icons.search),
-                        onPressed: () { },
-                        iconSize: 25.0,
+                new Container(
+                  child: new GestureDetector(
+                    onTap: () => Navigator.of(context).pushNamed('/search'),
+                    child: new Container(
+                      padding: new EdgeInsets.only(
+                        top: 90.0, left: 25.0, right: 25.0, bottom: 0.0
                       ),
-                      border: new OutlineInputBorder(borderRadius: const BorderRadius.all(const Radius.circular(30.0))),
-                      // filled: true,
-                      // fillColor: Colors.white,
+                      child: new TextField(
+                        controller:  _textController,
+                        decoration: new InputDecoration(
+                          hintText: "Search Gym nearby you",
+                          prefixIcon: new IconButton(
+                            icon: new Icon(Icons.search),
+                            // onPressed: () => Navigator.of(context).pushNamed('/search'),
+                            iconSize: 25.0,
+                          ),
+                          border: new OutlineInputBorder(borderRadius: const BorderRadius.all(const Radius.circular(30.0))),
+                          // filled: true,
+                          // fillColor: Colors.white,
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -88,11 +94,7 @@ class BannerState extends State<BannerComponent> {
   /// Build the bell icon at the top right corner of the header
   Widget _buildProfileIcon() {
     return new Row(
-      // mainAxisAlignment: MainAxisAlignment.start,
-      // crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        // margin: new EdgeInsets.only(right: 10.0),
-        // alignment: AlignmentDirectional.topEnd,
         new Expanded(
           child: new Container(
             // alignment: AlignmentDirectional.topStart,
@@ -112,7 +114,8 @@ class BannerState extends State<BannerComponent> {
           child:new IconButton(
             icon: new Icon(
               Icons.perm_identity, color: Colors.white, size: 30.0,),
-            onPressed: () => Navigator.of(context).pushNamed('/profile'))
+            onPressed: () => Navigator.of(context).pushNamed('/profile')
+          ),
         ),
       ],
     );

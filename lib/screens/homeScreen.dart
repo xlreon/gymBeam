@@ -11,7 +11,7 @@ class HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return new Scaffold(
       body: new Container(
-        child: new Scrollbar(
+        // child: new Scrollbar(
           child: new Column(
             children: <Widget>[
               new BannerComponent(),
@@ -22,7 +22,7 @@ class HomeScreenState extends State<HomeScreen> {
               )
             ],
           )
-        ),
+        // ),
       ),
     );
   }
