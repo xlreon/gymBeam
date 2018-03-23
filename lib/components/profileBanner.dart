@@ -53,8 +53,45 @@ class ProfileBannerState extends State<ProfileBanner> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                _buildBellIcon(),
+                _buildBackIcon(),
               ],
+            ),
+          ),
+          new Padding(
+            padding: new EdgeInsets.only(top: 60.0),
+            child: new Container(                                              
+              margin: const EdgeInsets.all(10.0),
+              child: new Column(
+                // crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  new Container(  
+                    // margin: const EdgeInsets.only(top: 30.0,bottom: 10.0),
+                    child: new Center(
+                      // child: new CircleAvatar(
+                      //   // child: new Text("R",textScaleFactor: 3.0,),
+                      //   child: new Image.asset('../assets/rohan.jpg',fit: BoxFit.cover,),
+                      //   radius: 50.0,
+                      // ),
+                      child: new Container(
+                        width: 100.0, height: 100.0,
+                        decoration: new BoxDecoration(
+                          image: new DecorationImage(
+                              image: new AssetImage("assets/images/rohan.jpg"),
+                              fit: BoxFit.cover),
+                          borderRadius: new BorderRadius.all(new Radius.circular(40.0)),
+                          boxShadow: <BoxShadow>[
+                            new BoxShadow(
+                                color: Colors.black26, blurRadius: 5.0, spreadRadius: 1.0),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  new Text("Rohan Panda",style: new TextStyle(fontSize: 32.0,fontWeight: FontWeight.w700)),
+                  new Text("rohan.panda1@gmail.com",style: new TextStyle(fontSize: 16.0,fontWeight: FontWeight.w400)),
+                  new Text("9853355155",style: new TextStyle(fontSize: 16.0,fontWeight: FontWeight.w400)),
+                ],
+              ),
             ),
           ),
         ],
@@ -63,7 +100,7 @@ class ProfileBannerState extends State<ProfileBanner> {
   }
 
   /// Build the bell icon at the top right corner of the header
-  Widget _buildBellIcon() {
+  Widget _buildBackIcon() {
     return new Row(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
