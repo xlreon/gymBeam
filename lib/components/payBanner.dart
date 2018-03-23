@@ -7,6 +7,8 @@ class BannerComponent extends StatefulWidget {
 }
 
 class BannerState extends State<BannerComponent> {
+  final TextEditingController _textController = new TextEditingController();
+
 @override
   Widget build(BuildContext context) {
     final topPadding = MediaQuery

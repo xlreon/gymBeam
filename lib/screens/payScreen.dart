@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../components/banner.dart';
+import '../components/PayBanner.dart';
 class PayScreen extends StatefulWidget {
   @override
   PayScreenState createState() => new PayScreenState();
