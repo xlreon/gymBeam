@@ -61,7 +61,7 @@ class BannerState extends State<BannerComponent> {
                 _buildProfileIcon(),
                 new Padding(
                   padding: new EdgeInsets.only(
-                  top: 110.0, left: 25.0, right: 25.0, bottom: 0.0),
+                  top: 100.0, left: 25.0, right: 25.0, bottom: 0.0),
                   child: new TextField(
                     controller:  _textController,
                     decoration: new InputDecoration(
