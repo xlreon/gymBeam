@@ -4,11 +4,10 @@ Personal project
 
 # ToDo List
 
-* Add option to profile screen
-* Gesture dectector for search bar on home screen
-* Add Search bar in Search screen
-
-
+* Add cards to home screen
+* Handle search bar submit bug
+* Pay screen
+ 
 # Resources
 
 ## Important links
