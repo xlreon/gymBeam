@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import './homeScreen.dart';
-import './searchScreen.dart';
+import './searchGym.dart';
 import './payScreen.dart';
 class MainScreen extends StatefulWidget {
   @override
@@ -15,7 +15,7 @@ class MainScreenState extends State<MainScreen> {
     
     final List screens = [
       new HomeScreen(),
-      new SearchScreen(),
+      new SearchGym(),
       new PayScreen(),
     ];
 
