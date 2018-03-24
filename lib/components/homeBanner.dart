@@ -17,11 +17,14 @@ class BannerState extends State<BannerComponent> {
         .top;
         
     const headerHeight = 290.0;
+    const bannerRadius = 80.0;
 
     return new Container(
       height: headerHeight,
       decoration: new BoxDecoration(
         color: BannerColors.primaryColor,
+        // borderRadius: const BorderRadius.all(const Radius.circular(50.0)),
+        borderRadius: const BorderRadius.only(bottomLeft: const Radius.circular(bannerRadius), bottomRight: const Radius.circular(bannerRadius)),
         boxShadow: <BoxShadow>[
           new BoxShadow(spreadRadius: 2.0,
               blurRadius: 4.0,
@@ -36,6 +39,7 @@ class BannerState extends State<BannerComponent> {
           new Container(
             height: headerHeight,
             decoration: new BoxDecoration(
+              borderRadius: const BorderRadius.only(bottomLeft: const Radius.circular(bannerRadius), bottomRight: const Radius.circular(bannerRadius)),
               gradient: new LinearGradient(
                   colors: <Color>[ //7928D1
                     const Color.fromRGBO(58, 159, 229, 1.0), const Color.fromRGBO(97, 178, 229, 1.0)],
@@ -68,7 +72,6 @@ class BannerState extends State<BannerComponent> {
                       ),
                       child:new Container(
                         height: 50.0,
-                        // margin: new EdgeInsets.symmetric(horizontal:10.0),
                         decoration: new BoxDecoration(
                           color: Colors.white,
                           borderRadius: const BorderRadius.all(const Radius.circular(30.0)),
@@ -109,7 +112,7 @@ class BannerState extends State<BannerComponent> {
             // alignment: AlignmentDirectional.topStart,
             margin: new EdgeInsets.only(top: 10.0, left: 10.0),
             child: new Text("Gym Beam",style: new TextStyle(
-              // fontStyle: FontStyle.italic,
+              fontStyle: FontStyle.italic,
               // decorationStyle: TextDecorationStyle.wavy,
               // color: Colors.grey,
               fontWeight: FontWeight.bold,
