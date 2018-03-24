@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../components/mapView.dart';
+
 class SearchGym extends StatefulWidget {
   @override
   SearchGymState createState() => new SearchGymState();
@@ -14,7 +16,7 @@ class SearchGymState extends State<SearchGym> {
             // new BannerComponent(),
             new Flexible(
               child: new Center(
-                child: new Text("Search Gym"),
+                child: new MapView(),
               ),
             )
           ],
