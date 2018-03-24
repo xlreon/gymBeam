@@ -4,7 +4,7 @@ Personal project
 
 # ToDo List
 
-* Added option to profile screen
+* Add option to profile screen
 * Gesture dectector for search bar on home screen
 * Add Search bar in Search screen
 
