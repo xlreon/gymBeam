@@ -58,7 +58,8 @@ class ProfileScreenState extends State<ProfileScreen> {
                             height: 200.0,
                             // margin: const EdgeInsets.symmetric(horizontal: 0.0),
                             child: new Image.asset("assets/images/2.jpg"
-                              ,fit: BoxFit.contain,),
+                              ,fit: BoxFit.fitWidth,
+                            ),
                           ),
                           const ListTile(
                             leading: const Icon(Icons.album),
@@ -74,6 +75,13 @@ class ProfileScreenState extends State<ProfileScreen> {
             )
           ],
         )
+      ),
+      floatingActionButton: new FloatingActionButton(
+        child: new IconButton(
+          icon: new Icon(Icons.edit),
+          tooltip: 'Edit Profile',
+          onPressed: () => Navigator.of(context).pushNamed('/profile/edit'),
+        ),
       ),
     );
   }
