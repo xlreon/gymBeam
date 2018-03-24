@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../components/mapView.dart';
+import '../components/searchBarGym.dart';
 
 class SearchGym extends StatefulWidget {
   @override
@@ -7,21 +8,25 @@ class SearchGym extends StatefulWidget {
 }
 
 class SearchGymState extends State<SearchGym> {
+  SearchBar searchBar;
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+    void onSubmitted(String value) {
+    setState(() => _scaffoldKey.currentState
+        .showSnackBar(new SnackBar(content: new Text('You wrote $value!'))));
+  }
+
+  SearchGymState() {
+    searchBar = new SearchBar(
+        inBar: false,
+        buildDefaultAppBar: null,
+        setState: setState,
+        onSubmitted: onSubmitted);
+  }
 @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      body: new Container(
-        child: new Column(
-          children: <Widget>[
-            // new BannerComponent(),
-            new Flexible(
-              child: new Center(
-                child: new MapView(),
-              ),
-            )
-          ],
-        )
-      ),
+      appBar: searchBar.buildSearchBar(context),
+      body: new MapView(),
     );
   }
 }

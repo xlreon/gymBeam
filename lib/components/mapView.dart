@@ -6,18 +6,19 @@ class MapView extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: 'Gym Map',
-      theme: new ThemeData(
-        primarySwatch: mapBoxBlue,
-      ),
-      home: new HomePage(),
-      routes: <String, WidgetBuilder>{
-        TapToAddPage.route: (context) => new TapToAddPage(),
-        EsriPage.route: (context) => new EsriPage(),
-        PolylinePage.route: (context) => new PolylinePage(),
-      },
-    );
+    return new HomePage();
+    // return new MaterialApp(
+    //   title: 'Gym Map',
+    //   theme: new ThemeData(
+    //     primarySwatch: mapBoxBlue,
+    //   ),
+    //   home: new HomePage(),
+    //   routes: <String, WidgetBuilder>{
+    //     TapToAddPage.route: (context) => new TapToAddPage(),
+    //     EsriPage.route: (context) => new EsriPage(),
+    //     PolylinePage.route: (context) => new PolylinePage(),
+    //   },
+    // );
   }
 }
 
@@ -56,10 +57,10 @@ class HomePage extends StatelessWidget {
       // ),
     ];
 
-    return new Scaffold(
+    return new Container(
       // appBar: new AppBar(title: new Text("Home")),
       // drawer: _buildDrawer(context, route),
-      body: new Padding(
+      child: new Padding(
         padding: new EdgeInsets.all(8.0),
         child: new Column(
           children: [
@@ -108,10 +109,10 @@ class TapToAddPageState extends State<TapToAddPage> {
       );
     }).toList();
 
-    return new Scaffold(
+    return new Container(
       // appBar: new AppBar(title: new Text("Tap to add pins")),
       // drawer: _buildDrawer(context, TapToAddPage.route),
-      body: new Padding(
+      child: new Padding(
         padding: new EdgeInsets.all(8.0),
         child: new Column(
           children: [
