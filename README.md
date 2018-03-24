@@ -1,10 +1,20 @@
 # gymBeam
 Personal project
 
+
+# ToDo List
+
+* Added option to profile screen
+* Gesture dectector for search bar on home screen
+* Add Search bar in Search screen
+
+
+# Resources
+
 ## Important links
 
 ### UI
-
+- [Search Bar](https://github.com/ArcticZeroo/flutter-search-bar) - Search bar for search screen 
 - [Image Picker](https://github.com/flutter/plugins/tree/master/packages/image_picker) - Images Selection by [Collin Jackson](http://www.collinjackson.com)
 - [Zoomable Image](https://github.com/perlatus/flutter_zoomable_image) - By Perlatus
 - [SpriteWidget](https://github.com/spritewidget/spritewidget) -  Toolkit for building complex, high performance animations and 2D games by Viktor Lidholt
