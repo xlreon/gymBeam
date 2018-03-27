@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../components/banner.dart';
+import '../components/HomeBanner.dart';
 class HomeScreen extends StatefulWidget {
   @override
   HomeScreenState createState() => new HomeScreenState();
@@ -11,16 +11,18 @@ class HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return new Scaffold(
       body: new Container(
-        child: new Column(
-          children: <Widget>[
-            new BannerComponent(),
-            new Flexible(
-              child: new Center(
-                child: new Text("Home Screen"),
-              ),
-            )
-          ],
-        )
+        // child: new Scrollbar(
+          child: new Column(
+            children: <Widget>[
+              new BannerComponent(),
+              new Flexible(
+                child: new Center(
+                  child: new Text("Home Screen"),
+                ),
+              )
+            ],
+          )
+        // ),
       ),
     );
   }

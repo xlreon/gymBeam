@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../components/resources/BannerColors.dart';
+import '../components/searchComponent.dart';
 
 class BannerComponent extends StatefulWidget {
   @override
@@ -7,6 +8,8 @@ class BannerComponent extends StatefulWidget {
 }
 
 class BannerState extends State<BannerComponent> {
+  final TextEditingController _textController = new TextEditingController();
+
 @override
   Widget build(BuildContext context) {
     final topPadding = MediaQuery
@@ -46,14 +49,18 @@ class BannerState extends State<BannerComponent> {
           new CustomPaint(
             painter: new HeaderGradientPainter(),
           ),
+          // new Container(
+          //   child: new Image.asset("assets/images/1.jpg"),
+          // ),
           new Padding(
             padding: new EdgeInsets.only(
                 top: topPadding, left: 15.0, right: 15.0, bottom: 20.0),
             child: new Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                _buildBellIcon(),
+              children: <Widget>[                
+                _buildProfileIcon(),
+                new SearchComponent()
               ],
             ),
           ),
@@ -63,15 +70,31 @@ class BannerState extends State<BannerComponent> {
   }
 
   /// Build the bell icon at the top right corner of the header
-  Widget _buildBellIcon() {
+  Widget _buildProfileIcon() {
     return new Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        new IconButton(
+        new Expanded(
+          child: new Container(
+            // alignment: AlignmentDirectional.topStart,
+            margin: new EdgeInsets.only(top: 10.0, left: 10.0),
+            child: new Text("Gym Beam",style: new TextStyle(
+              // fontStyle: FontStyle.italic,
+              // decorationStyle: TextDecorationStyle.wavy,
+              // color: Colors.grey,
+              fontWeight: FontWeight.bold,
+              fontSize: 45.0),
+            ),
+          ),
+        ),
+        new Container(
+          margin: new EdgeInsets.only(top: 10.0, right: 10.0),
+          alignment: AlignmentDirectional.topEnd,
+          child:new IconButton(
             icon: new Icon(
               Icons.perm_identity, color: Colors.white, size: 30.0,),
-            onPressed: () => Navigator.of(context).pushNamed('/profile')),
+            onPressed: () => Navigator.of(context).pushNamed('/profile')
+          ),
+        ),
       ],
     );
   }
