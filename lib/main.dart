@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'screens/mainScreen.dart';
 import 'screens/profileScreen.dart';
 import 'screens/searchScreen.dart';
+import 'screens/editprofileScreen.dart';
 
 void main() => runApp(new GymBeam());
 
@@ -25,6 +26,7 @@ class GymBeam extends StatelessWidget {
       title: 'Gym Beam',
       routes: <String, WidgetBuilder>{
         '/profile': (BuildContext context) => new ProfileScreen(),
+        '/profile/edit': (BuildContext context) => new EditProfileScreen(),
         '/search': (BuildContext context) => new SearchScreen(),
       },
       // Theme setting for IOS and android
