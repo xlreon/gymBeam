@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../components/mapView.dart';
 import '../components/searchBarGym.dart';
+import '../api/google-maps.dart';
+import 'dart:async';
 
 class SearchGym extends StatefulWidget {
   @override
@@ -11,8 +13,11 @@ class SearchGymState extends State<SearchGym> {
   SearchBar searchBar;
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
     void onSubmitted(String value) {
-    setState(() => _scaffoldKey.currentState
-        .showSnackBar(new SnackBar(content: new Text('You wrote $value!'))));
+      Future<List> response =
+      new GoogleMap(location: value).getLatLon();
+      response.then((val) {
+        print(val);
+      });
   }
 
   SearchGymState() {
