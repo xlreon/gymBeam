@@ -4,9 +4,11 @@ import 'package:flutter_map/flutter_map.dart';
 
 class MapView extends StatelessWidget {
   // This widget is the root of your application.
+  List latlng = [];
+  MapView({this.latlng});
   @override
   Widget build(BuildContext context) {
-    return new HomePage();
+    return new HomePage(latlng: latlng);
     // return new MaterialApp(
     //   title: 'Gym Map',
     //   theme: new ThemeData(
@@ -23,6 +25,8 @@ class MapView extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
+  List latlng = [];
+  HomePage({this.latlng});
   static const String route = '/';
   Widget build(BuildContext context) {
     var markers = <Marker>[
@@ -57,6 +61,11 @@ class HomePage extends StatelessWidget {
       // ),
     ];
 
+  TileLayerOptions currLayer = new TileLayerOptions(
+                      urlTemplate:
+                          "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                      subdomains: ['a', 'b', 'c']);
+
     return new Container(
       // appBar: new AppBar(title: new Text("Home")),
       // drawer: _buildDrawer(context, route),
@@ -67,14 +76,10 @@ class HomePage extends StatelessWidget {
             new Flexible(
               child: new FlutterMap(
                 options: new MapOptions(
-                  center: new LatLng(12.9716, 77.5946),
+                  center: new LatLng(latlng[0], latlng[1]),
                   zoom: 10.0,
                 ),
-                layers: [
-                  new TileLayerOptions(
-                      urlTemplate:
-                          "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-                      subdomains: ['a', 'b', 'c']),
+                layers: [ currLayer,
                   new MarkerLayerOptions(markers: markers)
                 ],
               ),

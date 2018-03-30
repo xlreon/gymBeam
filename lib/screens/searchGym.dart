@@ -11,14 +11,6 @@ class SearchGym extends StatefulWidget {
 
 class SearchGymState extends State<SearchGym> {
   SearchBar searchBar;
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-    void onSubmitted(String value) {
-      Future<List> response =
-      new GoogleMap(location: value).getLatLon();
-      response.then((val) {
-        print(val);
-      });
-  }
 
   SearchGymState() {
     searchBar = new SearchBar(
@@ -27,11 +19,31 @@ class SearchGymState extends State<SearchGym> {
         setState: setState,
         onSubmitted: onSubmitted);
   }
+
+  var currentMap = new MapView(latlng: [51.5073509, -0.1277583]);
+  
+
+  getSearchMap(List result) {
+    setState((){
+        // print(result);
+        currentMap = new MapView(latlng: result);
+      }
+      );
+  }
+
+  void onSubmitted(String value) {
+    Future<List> response =
+    new GoogleMap(location: value).getLatLon();
+    response.then((val) {
+      getSearchMap(val);
+    });
+  }
+
 @override
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: searchBar.buildSearchBar(context),
-      body: new MapView(),
+      body: currentMap
     );
   }
 }
