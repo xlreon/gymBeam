@@ -62,9 +62,7 @@ class NearbyCardState extends State<NearbyCard> {
 
   void cardClick()
   {
-    Scaffold.of(context).showSnackBar(new SnackBar(
-      content: new Text('Tap'),
-    ));
+    Navigator.of(context).pushNamed('/gymDetails');
   }
 
 }
