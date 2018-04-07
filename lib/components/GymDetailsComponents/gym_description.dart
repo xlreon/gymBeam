@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'models.dart';
 
-class Storyline extends StatelessWidget {
-  Storyline(this.storyline);
+class GymDescription extends StatelessWidget {
+  GymDescription(this.description);
 
-  final String storyline;
+  final String description;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class Storyline extends StatelessWidget {
         new Padding(
           padding: const EdgeInsets.only(top: 8.0),
           child: new Text(
-            storyline,
+            description,
             style:
                 textTheme.body1.copyWith(color: Colors.black45, fontSize: 16.0),
           ),

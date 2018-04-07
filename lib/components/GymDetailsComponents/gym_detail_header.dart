@@ -4,23 +4,10 @@ import 'models.dart';
 import 'poster.dart';
 import 'rating_information.dart';
 
-class MovieDetailHeader extends StatelessWidget {
-  MovieDetailHeader(this.movie);
+class GymDetailHeader extends StatelessWidget {
+  GymDetailHeader(this.gym);
 
-  final Movie movie;
-
-  _buildCategoryChips(TextTheme textTheme) {
-    return movie.categories.map((category) {
-      return new Padding(
-        padding: const EdgeInsets.only(right: 8.0),
-        child: new Chip(
-          label: new Text(category),
-          labelStyle: textTheme.caption,
-          backgroundColor: Colors.black12,
-        ),
-      );
-    }).toList();
-  }
+  final Gym gym;
 
   @override
   Widget build(BuildContext context) {
@@ -30,27 +17,29 @@ class MovieDetailHeader extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         new Text(
-          movie.title,
+          gym.title,
           style: textTheme.title,
         ),
         new Padding(
           padding: const EdgeInsets.only(top: 8.0),
-          child: new RatingInformation(movie),
+          child: new RatingInformation(gym),
         ),
         new Padding(
           padding: const EdgeInsets.only(top: 12.0),
-          child: new Row(
-            children: _buildCategoryChips(textTheme),
+          child: new Chip(
+            label: new Text("Show on Map"),
+            labelStyle: textTheme.caption,
+            backgroundColor: Colors.black12,
           ),
         ),
       ],
     );
 
     return new Stack(
-      children: [
+      children: [        
         new Padding(
           padding: const EdgeInsets.only(bottom: 140.0),
-          child: new ArcBannerImage(movie.bannerUrl),
+          child: new ArcBannerImage(gym.bannerUrl),
         ),
         new Positioned(
           bottom: 0.0,
@@ -61,7 +50,7 @@ class MovieDetailHeader extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               new Poster(
-                movie.posterUrl,
+                gym.posterUrl,
                 height: 180.0,
               ),
               new Expanded(
@@ -70,6 +59,7 @@ class MovieDetailHeader extends StatelessWidget {
                   child: movieInformation,
                 ),
               ),
+              
             ],
           ),
         ),

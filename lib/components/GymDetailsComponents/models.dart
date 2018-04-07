@@ -1,14 +1,14 @@
-class Movie {
-  Movie({
+class Gym {
+  Gym({
     this.bannerUrl,
     this.posterUrl,
     this.title,
     this.rating,
     this.starRating,
-    this.categories,
-    this.storyline,
+    this.price,
+    this.description,
     this.photoUrls,
-    this.actors,
+    this.trainers,
   });
 
   final String bannerUrl;
@@ -16,14 +16,14 @@ class Movie {
   final String title;
   final double rating;
   final int starRating;
-  final List<String> categories;
-  final String storyline;
+  final int price;
+  final String description;
   final List<String> photoUrls;
-  final List<Actor> actors;
+  final List<Trainer> trainers;
 }
 
-class Actor {
-  Actor({
+class Trainer {
+  Trainer({
     this.name,
     this.avatarUrl,
   });

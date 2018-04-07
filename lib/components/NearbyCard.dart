@@ -32,10 +32,10 @@ class NearbyCardState extends State<NearbyCard> {
                     new Container(
                       margin: new EdgeInsets.only(left: 10.0,top: 15.0),
                       child: new Row(
-                          children: <Widget>[
-                            new Icon(Icons.star),
-                            new Text("4.1",style: new TextStyle(fontSize: 17.0, fontWeight: FontWeight.w100),),
-                          ],
+                        children: <Widget>[
+                          new Icon(Icons.star,color: Colors.black45),
+                          new Text("4.1",style: new TextStyle(fontSize: 17.0, fontWeight: FontWeight.w100),),
+                        ],
                       )
                     )
                   ],
@@ -45,8 +45,8 @@ class NearbyCardState extends State<NearbyCard> {
                 margin: new EdgeInsets.symmetric(horizontal: 10.0),
                 child: new Row(
                   children: <Widget>[
-                    const Icon(Icons.event_seat),
-                    new Text("100",style: new TextStyle(fontSize: 18.0,fontWeight: FontWeight.bold),),
+                    new ImageIcon(new AssetImage('assets/images/ruppee.png'),size: 15.0,),
+                    new Text("100",style: new TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold),),
                   ],
                 ), 
                 alignment: Alignment.centerLeft,

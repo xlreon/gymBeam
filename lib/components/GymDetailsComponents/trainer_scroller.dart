@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'models.dart';
 
-class ActorScroller extends StatelessWidget {
-  ActorScroller(this.actors);
+class TrainerScroller extends StatelessWidget {
+  TrainerScroller(this.trainers);
 
-  final List<Actor> actors;
+  final List<Trainer> trainers;
 
   _buildActor(BuildContext ctx, int index) {
-    var actor = actors[index];
+    var actor = trainers[index];
 
     return new Padding(
       padding: const EdgeInsets.only(right: 16.0),
@@ -36,14 +36,14 @@ class ActorScroller extends StatelessWidget {
         new Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: new Text(
-            'Actors',
+            'Trainers',
             style: textTheme.subhead.copyWith(fontSize: 18.0),
           ),
         ),
         new SizedBox.fromSize(
           size: const Size.fromHeight(120.0),
           child: new ListView.builder(
-            itemCount: actors.length,
+            itemCount: trainers.length,
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.only(top: 12.0, left: 20.0),
             itemBuilder: _buildActor,
