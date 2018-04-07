@@ -9,19 +9,22 @@ class TrainerScroller extends StatelessWidget {
   _buildActor(BuildContext ctx, int index) {
     var actor = trainers[index];
 
-    return new Padding(
-      padding: const EdgeInsets.only(right: 16.0),
-      child: new Column(
-        children: [
-          new CircleAvatar(
-            backgroundImage: new AssetImage(actor.avatarUrl),
-            radius: 40.0,
-          ),
-          new Padding(
-            padding: const EdgeInsets.only(top: 8.0),
-            child: new Text(actor.name),
-          ),
-        ],
+    return new InkWell(
+      onTap: () => Navigator.of(ctx).pushNamed('/trainerDetails'),
+      child: new Padding(
+        padding: const EdgeInsets.only(right: 16.0),
+        child: new Column(
+          children: [
+            new CircleAvatar(
+              backgroundImage: new AssetImage(actor.avatarUrl),
+              radius: 40.0,
+            ),
+            new Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: new Text(actor.name),
+            ),
+          ],
+        ),
       ),
     );
   }

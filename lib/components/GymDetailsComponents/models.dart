@@ -31,3 +31,22 @@ class Trainer {
   final String name;
   final String avatarUrl;
 }
+
+class TrainerDetails {
+  TrainerDetails({
+    this.firstName,
+    this.lastName,
+    this.avatar,
+    this.backdropPhoto,
+    this.location,
+    this.biography,
+  });
+
+  final String firstName;
+  final String lastName;
+  final String avatar;
+  final String backdropPhoto;
+  final String location;
+  final String biography;
+
+}

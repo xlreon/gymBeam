@@ -4,6 +4,7 @@ import 'screens/mainScreen.dart';
 import 'screens/profileScreen.dart';
 import 'screens/searchGym.dart';
 import 'screens/GymDetails.dart';
+import 'screens/TrainerScreen.dart';
 
 void main() => runApp(new GymBeam());
 
@@ -29,6 +30,7 @@ class GymBeam extends StatelessWidget {
         '/profile': (BuildContext context) => new ProfileScreen(),
         '/search': (BuildContext context) => new SearchGym(),
         '/gymDetails': (BuildContext context) => new GymDetails(),
+        '/trainerDetails': (BuildContext context) => new TrainerDetailsScreen(),
       },
       // Theme setting for IOS and android
       theme: defaultTargetPlatform == TargetPlatform.iOS

@@ -40,3 +40,15 @@ final Gym testGym = new Gym(
     ),
   ],
 );
+
+final TrainerDetails testTrainer = new TrainerDetails(
+  firstName: 'Kevin',
+  lastName: 'Hart',
+  avatar: 'assets/images/kevin.png',
+  backdropPhoto: 'assets/images/kevin.png',
+  location: 'London, England',
+  biography: 'Andrew McLan "Kevin" Fraser was an English songwriter and bass '
+      'guitarist whose career lasted over forty years, and includes two spells '
+      'as a member of the rock band Free, which he helped found in 1968, aged 15.',
+  
+);
