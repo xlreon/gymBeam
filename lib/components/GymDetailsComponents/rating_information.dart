@@ -29,7 +29,7 @@ class RatingInformation extends StatelessWidget {
     var ratingCaptionStyle = textTheme.caption.copyWith(color: Colors.black45);
 
     var starRating = new Container(
-      padding: new EdgeInsets.only(left: 10.0),
+      // padding: new EdgeInsets.only(left: 5.0),
       child: new Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -55,8 +55,8 @@ class RatingInformation extends StatelessWidget {
           new Row(
             children: <Widget>[
               // const Icon(Icons.event_seat),
-              new ImageIcon(new AssetImage('assets/images/ruppee.png')),
-              new Text(gym.price.toString(),style: new TextStyle(fontSize: 25.0,fontWeight: FontWeight.bold),),
+              new ImageIcon(new AssetImage('assets/images/ruppee.png'),size: 15.0,),
+              new Text(gym.price.toString(),style: new TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold),),
             ],
           ),
           new Text("per Session") 
