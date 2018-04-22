@@ -11,8 +11,7 @@ class HomeScreenState extends State<HomeScreen> {
 
 @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      body: new Container(
+    return new Container(
           child: new ListView(
             children: <Widget>[
               new BannerComponent(),
@@ -45,7 +44,6 @@ class HomeScreenState extends State<HomeScreen> {
               new NearbyCard(),
             ],
           )
-      ),
-    );
+      );
   }
 }

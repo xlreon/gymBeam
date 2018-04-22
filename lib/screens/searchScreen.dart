@@ -7,8 +7,7 @@ class SearchScreen extends StatefulWidget {
 class SearchScreenState extends State<SearchScreen> {
 @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      body: new Container(
+    return new Container(
         child: new Column(
           children: <Widget>[
             new Flexible(
@@ -18,7 +17,6 @@ class SearchScreenState extends State<SearchScreen> {
             )
           ],
         )
-      ),
-    );
+      );
   }
 }

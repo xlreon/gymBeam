@@ -14,16 +14,24 @@ class MainScreenState extends State<MainScreen> {
     int screenIndex = 0;
     
     final List screens = [
-      new HomeScreen(),
-      new SearchScreen(),
-      new PayScreen(),
+      new Scaffold(
+        body: new HomeScreen()
+      ),
+      new Scaffold(
+        body: new SearchScreen()
+      ),
+      new Scaffold(
+        body: new PayScreen()
+      ),
     ];
 
     // Current screen to show
-    var currentScreen = new HomeScreen();
+    var currentScreen = new Scaffold(
+      body: new HomeScreen()
+    );
 
     // Array of toolbar items
-    final List toolbarItems = [
+    var toolbarItems = [
             new BottomNavigationBarItem(        
             icon: new Icon(Icons.home),
             title: new Text("home"),
