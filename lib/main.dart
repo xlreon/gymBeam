@@ -5,6 +5,11 @@ import 'screens/profileScreen.dart';
 import 'screens/searchGym.dart';
 import 'screens/GymDetails.dart';
 import 'screens/TrainerScreen.dart';
+import 'screens/searchScreen.dart';
+import 'screens/editprofileScreen.dart';
+import 'screens/chooseMemScreen.dart';
+import 'screens/sessionScreen.dart';
+import 'screens/applyMemScreen.dart';
 
 void main() => runApp(new GymBeam());
 
@@ -31,6 +36,10 @@ class GymBeam extends StatelessWidget {
         '/search': (BuildContext context) => new SearchGym(),
         '/gymDetails': (BuildContext context) => new GymDetails(),
         '/trainerDetails': (BuildContext context) => new TrainerDetailsScreen(),
+        '/profile/edit': (BuildContext context) => new EditProfileScreen(),
+        '/chooseMemScreen': (BuildContext context) => new ChooseMemScreen(),
+        '/sessionScreen': (BuildContext context) => new SessionScreen(),
+        '/applyMemScreen': (BuildContext context) => new ApplyMemScreen(),
       },
       // Theme setting for IOS and android
       theme: defaultTargetPlatform == TargetPlatform.iOS

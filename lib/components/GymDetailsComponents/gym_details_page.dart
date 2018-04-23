@@ -20,12 +20,14 @@ class GymDetailsPage extends StatelessWidget {
       appBar: new AppBar(
         leading: new IconButton(
           icon: new Icon(
-            Icons.arrow_back_ios,
+            Icons.arrow_back,
             // color: Colors.white, size: 30.0,
           ),
+          color: Colors.black,
           onPressed: () => Navigator.of(context).pop()
         ),
-        title: new Text("Gym Info"),
+        backgroundColor: Colors.white,
+        title: new Text("Gym Info",style: new TextStyle(color: Colors.black),),
         elevation: 8.0,
       ),
       body: new Column(
@@ -40,13 +42,13 @@ class GymDetailsPage extends StatelessWidget {
                     padding: const EdgeInsets.all(20.0),
                     child: new GymDescription(gym.description),
                   ),
-                  new PhotoScroller(gym.photoUrls),
+                  // new PhotoScroller(gym.photoUrls),
                   new Padding(
                     padding: const EdgeInsets.only(
                       top: 20.0,
                       bottom: 50.0,
                     ),
-                    child: new TrainerScroller(gym.trainers),
+                    // child: new TrainerScroller(gym.trainers),
                   ),
                 ],
               ),
@@ -74,7 +76,7 @@ class GymDetailsPage extends StatelessWidget {
                     child: new Text("Book Now",style: new TextStyle(fontSize: 18.0),),
                     color: Colors.orangeAccent,
                     // textColor: Colors.white,
-                    onPressed: () => print("book now pressed"),
+                    onPressed: () => Navigator.of(context).pushNamed('/chooseMemScreen'),
                   )
                 )
               ],

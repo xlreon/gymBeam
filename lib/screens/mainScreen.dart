@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:gym/screens/searchScreen.dart';
 import './homeScreen.dart';
-import './searchScreen.dart';
+import './searchGym.dart';
 import './payScreen.dart';
 class MainScreen extends StatefulWidget {
   @override
@@ -32,18 +33,19 @@ class MainScreenState extends State<MainScreen> {
 
     // Array of toolbar items
     var toolbarItems = [
-            new BottomNavigationBarItem(        
-            icon: new Icon(Icons.home),
-            title: new Text("home"),
-            ),
-            new BottomNavigationBarItem(
-              icon: new Icon(Icons.search),
-              title: new Text("search")
-            ),
-            new BottomNavigationBarItem(
-              icon: new Icon(Icons.monetization_on),
-              title: new Text("money")
-            )];
+      new BottomNavigationBarItem(        
+      icon: new Icon(Icons.home),
+      title: new Text("home"),
+      ),
+      new BottomNavigationBarItem(
+        icon: new Icon(Icons.search),
+        title: new Text("search")
+      ),
+      new BottomNavigationBarItem(
+        icon: new Icon(Icons.monetization_on),
+        title: new Text("money")
+      )
+    ];
 
   // function to handle on tap of toolbar items
   void _changeScreen(int index) {
@@ -68,7 +70,6 @@ class MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      body: new Scaffold(
         body: currentScreen,
         bottomNavigationBar: Theme.of(context).platform == TargetPlatform.iOS
         ? // IOS theme for toolbar
@@ -88,7 +89,6 @@ class MainScreenState extends State<MainScreen> {
           onTap: _changeScreen,
         )
         ,
-      )
     );
   }
 }
