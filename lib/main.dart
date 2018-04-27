@@ -9,7 +9,7 @@ import 'screens/searchScreen.dart';
 import 'screens/editprofileScreen.dart';
 import 'screens/chooseMemScreen.dart';
 import 'screens/sessionScreen.dart';
-import 'screens/applyMemScreen.dart';
+
 
 void main() => runApp(new GymBeam());
 
@@ -39,7 +39,7 @@ class GymBeam extends StatelessWidget {
         '/profile/edit': (BuildContext context) => new EditProfileScreen(),
         '/chooseMemScreen': (BuildContext context) => new ChooseMemScreen(),
         '/sessionScreen': (BuildContext context) => new SessionScreen(),
-        '/applyMemScreen': (BuildContext context) => new ApplyMemScreen(),
+        // '/applyMemScreen': (BuildContext context) => new ApplyMemScreen(ChooseMemScreen.plan),
       },
       // Theme setting for IOS and android
       theme: defaultTargetPlatform == TargetPlatform.iOS

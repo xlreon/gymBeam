@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ApplyMemScreen extends StatefulWidget {
-  @override
-  ApplyMemScreenState createState() => new ApplyMemScreenState();
-}
+class ApplyMemScreen extends StatelessWidget {
 
-class ApplyMemScreenState extends State<ApplyMemScreen> {
+  ApplyMemScreen({this.plan});
+  final int plan;
 
 @override
   Widget build(BuildContext context) {
+    // print (plan);
     return Scaffold(
       appBar: new AppBar(
         leading: new IconButton(
@@ -24,7 +23,7 @@ class ApplyMemScreenState extends State<ApplyMemScreen> {
         elevation: 8.0,
       ),
       body: new Container(
-
+        
       ),
     );
   }

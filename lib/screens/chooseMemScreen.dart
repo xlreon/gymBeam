@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'applyMemScreen.dart';
 
 class ChooseMemScreen extends StatefulWidget {
   @override
@@ -176,7 +177,12 @@ class ChooseMemScreenState extends State<ChooseMemScreen> {
     }
     else
     {
-      Navigator.of(context).pushNamed('/applyMemScreen');
+      Navigator.push(
+        context,
+        new MaterialPageRoute(
+          builder: (context) => new ApplyMemScreen(plan: plan),
+        ),
+      );
     }
   }
 }
