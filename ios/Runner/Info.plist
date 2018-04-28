@@ -10,7 +10,7 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 			<!-- reverse url of your client id, for example: --> 
-	<string>com.googleusercontent.apps.415773562157-p0cf0pbeam698rc4478vppto873oipb5</string>
+	<string>com.googleusercontent.apps.1077885224522-rvmdu0eok9trau6r1jpiqiiqet4s59vs</string>
 			<!-- bundle id, for example: -->
 				<string>com.gymBeam.ios</string>
 			</array>
