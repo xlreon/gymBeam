@@ -11,8 +11,7 @@ class SearchGymState extends State<SearchGym> {
   SearchBar searchBar;
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
     void onSubmitted(String value) {
-    setState(() => _scaffoldKey.currentState
-        .showSnackBar(new SnackBar(content: new Text('You wrote $value!'))));
+      print(value);
   }
 
   SearchGymState() {
