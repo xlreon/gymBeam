@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'DateTimeScreen.dart';
 
 class SessionScreen extends StatefulWidget {
   @override
@@ -7,6 +9,7 @@ class SessionScreen extends StatefulWidget {
 
 class SessionScreenState extends State<SessionScreen> {
 
+var _selectedNumber = 1;
 @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,8 +35,19 @@ class SessionScreenState extends State<SessionScreen> {
               alignment: Alignment.centerLeft,
               child: new Text("Total Number of sessions?",style: new TextStyle(fontSize: 40.0),),
             ),
-            new Container(
-              child: new Text("1",style: new TextStyle(fontSize: 70.0),),
+            new GestureDetector(
+              child:new Container(
+                child: new Text(_selectedNumber.toString(),style: new TextStyle(fontSize: 70.0),),
+              ),
+              // onTap:() => _pickerView(),
+              onTap: () async {
+                await showModalBottomSheet<void>(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return _pickerView();
+                  },
+                );
+              },
             ),
             new Container(
               margin: new EdgeInsets.only(top:30.0),
@@ -55,7 +69,43 @@ class SessionScreenState extends State<SessionScreen> {
 
   void _proceedButton()
   {
-    
+    Navigator.push(
+      context,
+      new MaterialPageRoute(
+        builder: (context) => new DateTimeScreen(sessions: _selectedNumber),
+      ),
+    );
+  }
+
+  Widget _pickerView()
+  {
+  FixedExtentScrollController scrollController = new FixedExtentScrollController(initialItem:_selectedNumber-1);
+    return new GestureDetector(
+      onTap: () { Navigator.of(context).pop(_selectedNumber);},
+      child: new SafeArea(
+        child: new CupertinoPicker(
+          scrollController: scrollController,
+            itemExtent: 60.0,
+            backgroundColor: CupertinoColors.white,
+            onSelectedItemChanged: (int index) {
+              setState(() {
+                _selectedNumber = (index+1);
+              });
+            },
+            children: new List<Widget>.generate(10, (int index) {
+              return new Center(child:
+                new Text((index+1).toString(),style: new TextStyle(fontSize: 50.0),),
+              );
+            }),
+          // ],
+        ),
+      ),
+    );
+  }
+
+  void onChange(int i)
+  {
+    print(i);
   }
 
 }
