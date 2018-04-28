@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import './homeScreen.dart';
-import './searchGym.dart';
+import './searchScreen.dart';
 import './payScreen.dart';
 class MainScreen extends StatefulWidget {
   @override
@@ -14,16 +14,24 @@ class MainScreenState extends State<MainScreen> {
     int screenIndex = 0;
     
     final List screens = [
-      new HomeScreen(),
-      new SearchGym(),
-      new PayScreen(),
+      new Scaffold(
+        body: new HomeScreen()
+      ),
+      new Scaffold(
+        body: new SearchScreen()
+      ),
+      new Scaffold(
+        body: new PayScreen()
+      ),
     ];
 
     // Current screen to show
-    var currentScreen = new HomeScreen();
+    var currentScreen = new Scaffold(
+      body: new HomeScreen()
+    );
 
     // Array of toolbar items
-    final List toolbarItems = [
+    var toolbarItems = [
             new BottomNavigationBarItem(        
             icon: new Icon(Icons.home),
             title: new Text("home"),

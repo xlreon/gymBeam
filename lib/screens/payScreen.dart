@@ -8,8 +8,7 @@ class PayScreen extends StatefulWidget {
 class PayScreenState extends State<PayScreen> {
 @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      body: new Container(
+    return new Container(
         child: new Column(
           children: <Widget>[
             new BannerComponent(),
@@ -20,7 +19,6 @@ class PayScreenState extends State<PayScreen> {
             )
           ],
         )
-      ),
-    );
+      );
   }
 }
