@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'models.dart';
+import '../../screens/picScroller.dart';
 
 class PhotoScroller extends StatelessWidget {
   PhotoScroller(this.photoUrls);
@@ -9,17 +10,26 @@ class PhotoScroller extends StatelessWidget {
   Widget _buildPhoto(BuildContext context, int index) {
     var photo = photoUrls[index];
 
-    return new Padding(
-      padding: new EdgeInsets.only(right: 16.0),
-      child: new ClipRRect(
-        borderRadius: new BorderRadius.circular(4.0),
-        child: new Image.asset(
-          photo,
-          width: 160.0,
-          height: 120.0,
-          fit: BoxFit.cover,
+    return new InkWell(
+      onTap: () { Navigator.push(
+          context,
+          new MaterialPageRoute(
+            builder: (context) => new PicScroller(index:index),
+          ),
+        );
+      },
+      child: new Padding(
+        padding: new EdgeInsets.only(right: 16.0),
+        child: new ClipRRect(
+          borderRadius: new BorderRadius.circular(4.0),
+          child: new Image.asset(
+            photo,
+            width: 160.0,
+            height: 120.0,
+            fit: BoxFit.cover,
+          ),
         ),
-      ),
+      )
     );
   }
 

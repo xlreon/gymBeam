@@ -3,6 +3,7 @@ class Gym {
     this.bannerUrl,
     this.posterUrl,
     this.title,
+    this.address,
     this.rating,
     this.starRating,
     this.price,
@@ -14,6 +15,7 @@ class Gym {
   final String bannerUrl;
   final String posterUrl;
   final String title;
+  final String address;
   final double rating;
   final int starRating;
   final int price;

@@ -5,6 +5,7 @@ final Gym testGym = new Gym(
   posterUrl: 'assets/images/poster.png',
   title: 'The Secret Life of Pets',
   price: 100,
+  address : 'E/193, Sector-7, CDA, Cuttack',
   rating: 4.1,
   starRating: 4,
   description: 'For their fifth fully-animated feature-film '

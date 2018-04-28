@@ -28,7 +28,7 @@ class RatingInformation extends StatelessWidget {
     var textTheme = theme.textTheme;
     var ratingCaptionStyle = textTheme.caption.copyWith(color: Colors.black45);
 
-    var starRating = new Container(
+    return new Container(
       // padding: new EdgeInsets.only(left: 5.0),
       child: new Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,35 +46,6 @@ class RatingInformation extends StatelessWidget {
           ),
         ],
       )
-    );
-
-    var price = new Container(
-      // margin: new EdgeInsets.symmetric(horizontal: 10.0),
-      child: new Column(
-        children: <Widget>[
-          new Row(
-            children: <Widget>[
-              // const Icon(Icons.event_seat),
-              new ImageIcon(new AssetImage('assets/images/ruppee.png'),size: 15.0,),
-              new Text(gym.price.toString(),style: new TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold),),
-            ],
-          ),
-          new Text("per Session") 
-        ],
-      ),
-      alignment: Alignment.centerLeft,
-    );
-
-    return new Row(
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: [
-        // numericRating,
-        price,
-        new Expanded(
-          child: starRating,
-        ),
-        
-      ],
     );
   }
 }

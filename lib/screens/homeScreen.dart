@@ -12,8 +12,9 @@ class HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("GYM BEAM", style: new TextStyle(color: Colors.black),),
+        title: new Text("GYM BEAM", style: new TextStyle(color: Colors.black,fontSize: 25.0, fontWeight: FontWeight.bold)),
         backgroundColor: Colors.white,
+        centerTitle: false,
         elevation: 8.0,
         actions: <Widget>[
           new IconButton(

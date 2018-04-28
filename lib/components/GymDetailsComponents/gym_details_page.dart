@@ -27,6 +27,7 @@ class GymDetailsPage extends StatelessWidget {
         ),
         title: new Text("GYM INFO",style: new TextStyle(color: Colors.black)),
         backgroundColor: Colors.white,
+
         elevation: 8.0,
         actions: <Widget>[
           new IconButton(
@@ -41,7 +42,7 @@ class GymDetailsPage extends StatelessWidget {
       body: new Column(
         children: <Widget>[
           new Container(
-            height: screenHeight - 130.0,
+            height: (screenHeight>800) ? screenHeight - 154.0 : screenHeight - 130.0,
             child: new SingleChildScrollView(
               child: new Column(
                 children: [

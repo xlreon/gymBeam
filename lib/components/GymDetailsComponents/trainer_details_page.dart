@@ -36,12 +36,12 @@ class TrainerDetailsPage extends StatelessWidget {
           new Container(
             child: new IconButton(
               icon: new Icon(
-                Icons.arrow_back_ios,
+                Icons.arrow_back,
                 color: Colors.white, size: 30.0,
               ),
               onPressed: () => Navigator.of(context).pop()
             ),
-            margin: new EdgeInsets.only(top:20.0),
+            margin: new EdgeInsets.only(top:40.0),
           ),
           
           _buildAvatar(),
