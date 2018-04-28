@@ -6,7 +6,7 @@ class TrainerScroller extends StatelessWidget {
 
   final List<Trainer> trainers;
 
-  _buildActor(BuildContext ctx, int index) {
+  Widget _buildActor(BuildContext ctx, int index) {
     var actor = trainers[index];
 
     return new InkWell(

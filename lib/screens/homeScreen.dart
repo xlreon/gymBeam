@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../components/HomeBanner.dart';
 import '../components/NearbyCard.dart';
 import '../components/DealsCard.dart';
 class HomeScreen extends StatefulWidget {
@@ -11,10 +10,23 @@ class HomeScreenState extends State<HomeScreen> {
 
 @override
   Widget build(BuildContext context) {
-    return new Container(
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text("GYM BEAM", style: new TextStyle(color: Colors.black),),
+        backgroundColor: Colors.white,
+        elevation: 8.0,
+        actions: <Widget>[
+          new IconButton(
+            color: Colors.black,
+            icon: new Icon(Icons.search),
+            onPressed: () => _searchBar(),
+          )
+        ],
+      ),
+      body: new Container(
           child: new ListView(
             children: <Widget>[
-              new BannerComponent(),
+              // new BannerComponent(),
               new Container(
                 margin: new EdgeInsets.only(left:20.0, top: 10.0),
                 child: new Text("Hot Deals",style: new TextStyle(
@@ -44,6 +56,13 @@ class HomeScreenState extends State<HomeScreen> {
               new NearbyCard(),
             ],
           )
-      );
+      ),
+    );
+    
+  }
+
+  void _searchBar()
+  {
+    print("search");
   }
 }
