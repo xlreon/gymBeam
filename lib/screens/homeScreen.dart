@@ -63,6 +63,6 @@ class HomeScreenState extends State<HomeScreen> {
 
   void _searchBar()
   {
-    print("search");
+    Navigator.of(context).pushNamed("/search");
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import './homeScreen.dart';
 import './searchScreen.dart';
+import './profileScreen.dart';
 import './payScreen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -18,10 +19,10 @@ class MainScreenState extends State<MainScreen> {
         body: new HomeScreen(),
       ),
       new Scaffold(
-        body: new SearchScreen()
+        body: new PayScreen()
       ),
       new Scaffold(
-        body: new PayScreen()
+        body: new ProfileScreen()
       ),
     ];
 
@@ -35,12 +36,12 @@ class MainScreenState extends State<MainScreen> {
         title: new Text("home"),
       ),
       new BottomNavigationBarItem(
-        icon: new Icon(Icons.search),
-        title: new Text("search")
+        icon: new Icon(Icons.monetization_on),
+        title: new Text("pay")
       ),
       new BottomNavigationBarItem(
-        icon: new Icon(Icons.monetization_on),
-        title: new Text("money")
+        icon: new Icon(Icons.perm_identity),
+        title: new Text("profile")
       )
     ];
 

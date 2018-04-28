@@ -53,7 +53,7 @@ class ProfileBannerState extends State<ProfileBanner> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                _buildBackIcon(),
+                // _buildBackIcon(),
               ],
             ),
           ),
