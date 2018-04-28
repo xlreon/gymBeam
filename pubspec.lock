@@ -351,26 +351,7 @@ packages:
       name: test
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    version: "0.12.30+3"
-  tuple:
-    dependency: transitive
-    description:
-      name: tuple
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.1"
-=======
-    version: "0.12.32+2"
->>>>>>> 1eefe0895e5842f39a60f168c23e2add15f2d48a
-=======
     version: "0.12.34"
->>>>>>> 3986fbf356f48f48e2490bd20f38645b5e4aba40
-=======
-    version: "0.12.34"
->>>>>>> 9af96eec4abb8580771f8edbed205b0a62b8f2ef
   typed_data:
     dependency: transitive
     description:

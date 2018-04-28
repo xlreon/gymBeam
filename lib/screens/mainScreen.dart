@@ -14,7 +14,9 @@ class MainScreenState extends State<MainScreen> {
     int screenIndex = 0;
     
     final List screens = [
-      new HomeScreen(),
+      new Scaffold(
+        body: new HomeScreen(),
+      ),
       new Scaffold(
         body: new SearchScreen()
       ),
@@ -24,7 +26,7 @@ class MainScreenState extends State<MainScreen> {
     ];
 
     // Current screen to show
-    var currentScreen =  new HomeScreen();
+    var currentScreen = new Scaffold( body: new HomeScreen(),);
 
     // Array of toolbar items
     var toolbarItems = [
