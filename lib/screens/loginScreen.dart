@@ -36,10 +36,25 @@ void login() {
       home: new Scaffold(
         body: new Container(
           child: new Center(
-            child: new FlatButton(
-              child: new Text("Login"),
-              onPressed: () => _signIn().then((FirebaseUser user)=>print(user)).catchError((e)=>print(e)),
-            ),
+            child: new ButtonBar(
+              alignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new Image.asset("assets/images/google.png"),
+                new RaisedButton(
+                  color: Colors.black,
+                  textColor: Colors.white,
+                  child: new Text("Login with Google",
+                  style:new TextStyle(fontSize: 20.0)),
+                  onPressed: () => _signIn().then((FirebaseUser user)=>print(user)).catchError((e)=>print(e)),
+                ),
+              ],
+            )
+            // new RaisedButton(
+            //   color: Colors.black,
+            //   textColor: Colors.white,
+            //   child: new Text("Login"),
+            //   onPressed: () => _signIn().then((FirebaseUser user)=>print(user)).catchError((e)=>print(e)),
+            // ),
           ),
         )
       )
