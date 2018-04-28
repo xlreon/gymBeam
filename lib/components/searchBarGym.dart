@@ -55,7 +55,7 @@ class SearchBar {
     this.controller,
     this.hintText = 'Search',
     this.inBar = true,
-    this.colorBackButton = true,
+    this.colorBackButton = false,
     this.closeOnSubmit = true,
     this.clearOnSubmit = true,
     this.showClearButton = true
@@ -138,8 +138,10 @@ class SearchBar {
     Color textColor = inBar ? Colors.white70 : Colors.black54;
 
     return new AppBar(
-      leading: new BackButton(
-        color: buttonColor
+      leading: new IconButton(
+        color: buttonColor,
+        icon: Icon(Icons.arrow_back),
+        onPressed: () => Navigator.maybePop(context),
       ),
       backgroundColor: barColor,
       title: new Directionality(
@@ -191,6 +193,7 @@ class SearchBar {
   IconButton getSearchAction(BuildContext context) {
     return new IconButton(
       icon: new Icon(Icons.search),
+      color: Colors.black,
       onPressed: () {
         beginSearch(context);
       }
