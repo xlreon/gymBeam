@@ -53,7 +53,7 @@ class ProfileBannerState extends State<ProfileBanner> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                _buildBackIcon(),
+                // _buildBackIcon(),
               ],
             ),
           ),
@@ -106,9 +106,10 @@ class ProfileBannerState extends State<ProfileBanner> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         new IconButton(
-            icon: new Icon(
-              Icons.arrow_back_ios, color: Colors.white, size: 30.0,),
-            onPressed: () => Navigator.of(context).pop()),
+          icon: new Icon(
+            Icons.arrow_back_ios, color: Colors.white, size: 30.0,),
+          onPressed: () => Navigator.of(context).pop()
+        ),
       ],
     );
   }

@@ -9,7 +9,7 @@ class SearchComponentState extends State<SearchComponent> {
   Widget build(BuildContext context) {
     return new Container(
       child: new GestureDetector(
-        onTap: ()  {print ("SearchBox tapped.");Navigator.of(context).pushNamed('/search');},
+        onTap: ()  {print ("SearchBox tapped.");Navigator.of(context).pushNamed('/searchGym');},
         child: new Container(
           padding: new EdgeInsets.only(
             top: 90.0, left: 25.0, right: 25.0, bottom: 0.0

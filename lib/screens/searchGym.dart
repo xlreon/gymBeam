@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../components/mapView.dart';
+// import '../components/mapView.dart';
 import '../components/searchBarGym.dart';
 
 class SearchGym extends StatefulWidget {
@@ -11,8 +11,7 @@ class SearchGymState extends State<SearchGym> {
   SearchBar searchBar;
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
     void onSubmitted(String value) {
-    setState(() => _scaffoldKey.currentState
-        .showSnackBar(new SnackBar(content: new Text('You wrote $value!'))));
+      print(value);
   }
 
   SearchGymState() {
@@ -26,7 +25,7 @@ class SearchGymState extends State<SearchGym> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: searchBar.buildSearchBar(context),
-      body: new MapView(),
+      // body: new MapView(),
     );
   }
 }
