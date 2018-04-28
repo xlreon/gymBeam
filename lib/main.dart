@@ -11,13 +11,13 @@ void main() => runApp(new GymBeam());
 class GymBeam extends StatelessWidget {
   
   final ThemeData kIOSTheme = new ThemeData(
-    primarySwatch: Colors.blue,
-    primaryColor: Colors.blue,
+    primarySwatch: Colors.white,
+    primaryColor: Colors.white,
     accentColor: const Color(0xFFFF5959),
   );
 
   final ThemeData kDefaultTheme = new ThemeData(
-    primarySwatch: Colors.blue,
+    primarySwatch: Colors.white,
     accentColor: const Color(0xFFFF5959),
   );
 

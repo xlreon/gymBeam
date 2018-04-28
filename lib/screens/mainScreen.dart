@@ -3,20 +3,18 @@ import 'package:flutter/cupertino.dart';
 import './homeScreen.dart';
 import './searchScreen.dart';
 import './payScreen.dart';
+
 class MainScreen extends StatefulWidget {
   @override
   MainScreenState createState() => new MainScreenState();
 }
-
 
 class MainScreenState extends State<MainScreen> {
     // Current screen position
     int screenIndex = 0;
     
     final List screens = [
-      new Scaffold(
-        body: new HomeScreen()
-      ),
+      new HomeScreen(),
       new Scaffold(
         body: new SearchScreen()
       ),
@@ -26,24 +24,23 @@ class MainScreenState extends State<MainScreen> {
     ];
 
     // Current screen to show
-    var currentScreen = new Scaffold(
-      body: new HomeScreen()
-    );
+    var currentScreen =  new HomeScreen();
 
     // Array of toolbar items
     var toolbarItems = [
-            new BottomNavigationBarItem(        
-            icon: new Icon(Icons.home),
-            title: new Text("home"),
-            ),
-            new BottomNavigationBarItem(
-              icon: new Icon(Icons.search),
-              title: new Text("search")
-            ),
-            new BottomNavigationBarItem(
-              icon: new Icon(Icons.monetization_on),
-              title: new Text("money")
-            )];
+      new BottomNavigationBarItem(        
+        icon: new Icon(Icons.home),
+        title: new Text("home"),
+      ),
+      new BottomNavigationBarItem(
+        icon: new Icon(Icons.search),
+        title: new Text("search")
+      ),
+      new BottomNavigationBarItem(
+        icon: new Icon(Icons.monetization_on),
+        title: new Text("money")
+      )
+    ];
 
   // function to handle on tap of toolbar items
   void _changeScreen(int index) {
@@ -92,5 +89,7 @@ class MainScreenState extends State<MainScreen> {
     );
   }
 }
+
+
 
 

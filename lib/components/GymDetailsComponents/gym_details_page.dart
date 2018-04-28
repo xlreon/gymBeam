@@ -20,13 +20,23 @@ class GymDetailsPage extends StatelessWidget {
       appBar: new AppBar(
         leading: new IconButton(
           icon: new Icon(
-            Icons.arrow_back_ios,
-            // color: Colors.white, size: 30.0,
+            Icons.arrow_back,
+            color: Colors.black, size: 30.0,
           ),
           onPressed: () => Navigator.of(context).pop()
         ),
-        title: new Text("Gym Info"),
+        title: new Text("GYM INFO",style: new TextStyle(color: Colors.black)),
+        backgroundColor: Colors.white,
         elevation: 8.0,
+        actions: <Widget>[
+          new IconButton(
+          icon: new Icon(
+            Icons.more_vert ,
+            color: Colors.black, size: 30.0,
+          ),
+          onPressed: () => _menuPopup(),
+        ), 
+        ],
       ),
       body: new Column(
         children: <Widget>[
@@ -84,5 +94,10 @@ class GymDetailsPage extends StatelessWidget {
       )
       
     );
+  }
+
+  void _menuPopup()
+  {
+    print("menu");
   }
 }
