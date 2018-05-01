@@ -13,10 +13,10 @@ class ProfileScreenState extends State<ProfileScreen> {
     return new Scaffold(
       body: new Container(
         padding: new EdgeInsets.symmetric(horizontal:10.0),
-        child: new Column(
+        child: new ListView(
           children: <Widget>[
             new Container(
-              margin: new EdgeInsets.only(top:50.0),
+              margin: new EdgeInsets.only(top:20.0),
               child: new Row(
                 children: <Widget>[
                   new Container(
@@ -32,20 +32,22 @@ class ProfileScreenState extends State<ProfileScreen> {
                       ],
                     ),
                   ),
-                  new Container(
-                    // alignment: Alignment.centerLeft,
-                    padding: new EdgeInsets.only(left: 10.0),
-                    child: new Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        new Text("Rohan Panda",style: new TextStyle(fontSize: 20.0,fontWeight: FontWeight.w700),textAlign: TextAlign.left,),
-                        new Text("rohan.panda1@gmail.com",style: new TextStyle(fontSize: 16.0,fontWeight: FontWeight.w400),textAlign: TextAlign.left,),
-                        new Container(
-                          alignment: Alignment.centerLeft,
-                          child: new Text("9853355155",style: new TextStyle(fontSize: 16.0,fontWeight: FontWeight.w400)),
-                        )
-                        
-                      ],
+                  new Expanded(
+                    child: new Container(
+                      // alignment: Alignment.centerLeft,
+                      padding: new EdgeInsets.only(left: 10.0),
+                      child: new Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          new Text("Rohan Panda",style: new TextStyle(fontSize: 20.0,fontWeight: FontWeight.w700),textAlign: TextAlign.left,),
+                          new Text("rohan.panda1@gmail.com",style: new TextStyle(fontSize: 15.0,fontWeight: FontWeight.w400),textAlign: TextAlign.left,),
+                          new Container(
+                            alignment: Alignment.centerLeft,
+                            child: new Text("9853355155",style: new TextStyle(fontSize: 15.0,fontWeight: FontWeight.w400)),
+                          )
+                          
+                        ],
+                      ),
                     ),
                   ),
                   new Container(
@@ -60,12 +62,12 @@ class ProfileScreenState extends State<ProfileScreen> {
               ),
             ),
             new Container(
-              // padding: new EdgeInsets.symmetric(horizontal:10.0),
-              child: new Divider(color: Colors.black,height: 20.0,),
+              child: new Divider(color: Colors.black,height: 25.0,),
             ),
             new Container(
+              margin: new EdgeInsets.only(bottom:10.0),
               alignment: Alignment.centerLeft,
-              child: new Text("Account"),
+              child: new Text("Account",style: new TextStyle(fontSize: 25.0,fontWeight: FontWeight.w700)),
             ),
             new Container(
               child: new ExpansionPanelList(
@@ -93,9 +95,13 @@ class ProfileScreenState extends State<ProfileScreen> {
                 ],
               ),
             ),
-
             new Container(
-              padding: new EdgeInsets.symmetric(vertical: 10.0),
+              margin: new EdgeInsets.symmetric(vertical:10.0),
+              alignment: Alignment.centerLeft,
+              child: new Text("Help",style: new TextStyle(fontSize: 25.0,fontWeight: FontWeight.w700)),
+            ),
+            new Container(
+              // padding: new EdgeInsets.symmetric(vertical: 10.0),
               child: new ExpansionPanelList(
                 expansionCallback: (int index, bool isExpanded) {
                   setState(() {
@@ -118,7 +124,7 @@ class ProfileScreenState extends State<ProfileScreen> {
             ),
             new Center(
               child: new Container(
-                padding: new EdgeInsets.all(10.0),
+                padding: new EdgeInsets.only(top:20.0),
                 width: 200.0,
                 child: new RaisedButton(
                   child: new Text("Logout",style: new TextStyle(fontSize: 20.0,color: Colors.white),),
