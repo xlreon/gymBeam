@@ -1,18 +1,9 @@
 import 'package:flutter/material.dart';
 
-class DateTimeScreen extends StatefulWidget {
+class ApplyMemScreen extends StatelessWidget {
 
-  DateTimeScreen({this.sessions});
-  final int sessions;
-
-  @override
-  DateTimeScreenState createState() => new DateTimeScreenState(sessions: sessions);
-}
-
-class DateTimeScreenState extends State<DateTimeScreen> {
-
-  DateTimeScreenState({this.sessions});
-  final int sessions;
+  ApplyMemScreen({this.plan});
+  final int plan;
 
 @override
   Widget build(BuildContext context) {
@@ -32,7 +23,7 @@ class DateTimeScreenState extends State<DateTimeScreen> {
         elevation: 8.0,
       ),
       body: new Container(
-        child:new Center(child: new Text(sessions.toString()),)
+        
       ),
     );
   }
