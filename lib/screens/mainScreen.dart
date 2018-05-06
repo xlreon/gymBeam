@@ -7,6 +7,11 @@ import './profileScreen.dart';
 import './payScreen.dart';
 
 class MainScreen extends StatefulWidget {
+
+  MainScreen({this.userDetails,this.auth});
+  final userDetails;
+  final auth;
+
   @override
   MainScreenState createState() => new MainScreenState();
 }
@@ -14,17 +19,13 @@ class MainScreen extends StatefulWidget {
 class MainScreenState extends State<MainScreen> {
     // Current screen position
     int screenIndex = 0;
-    
     final List screens = [
       new Scaffold(
         body: new HomeScreen(),
       ),
       new Scaffold(
         body: new PayScreen()
-      ),
-      new Scaffold(
-        body: new ProfileScreen()
-      ),
+      )
     ];
 
     // Current screen to show
@@ -58,7 +59,7 @@ class MainScreenState extends State<MainScreen> {
       break;
       case 1: currentScreen = screens[1];
       break;
-      case 2: currentScreen = screens[2];
+      case 2: currentScreen = new Scaffold( body: new ProfileScreen(userDetails: widget.userDetails,auth: widget.auth,));
       break;
     }
     

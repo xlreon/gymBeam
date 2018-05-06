@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
 import '../components/ProfileBanner.dart';
+import 'dart:async';
+import './loginScreen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 class ProfileScreen extends StatefulWidget {
+
+  ProfileScreen({this.userDetails,this.auth});
+  final userDetails;
+  final auth;
   @override
   ProfileScreenState createState() => new ProfileScreenState();
 }
 
 class ProfileScreenState extends State<ProfileScreen> {
+  
   var account=[false,false,false];
   var other=[false,false];
 @override
   Widget build(BuildContext context) {
+  print(widget.userDetails);
     return new Scaffold(
       body: new Container(
         padding: new EdgeInsets.symmetric(horizontal:10.0),
@@ -23,7 +32,7 @@ class ProfileScreenState extends State<ProfileScreen> {
                     width: 80.0, height: 80.0,
                     decoration: new BoxDecoration(
                       image: new DecorationImage(
-                          image: new AssetImage("assets/images/rohan.jpg"),
+                          image: new NetworkImage(widget.userDetails.photoUrl),
                           fit: BoxFit.cover),
                       borderRadius: new BorderRadius.all(new Radius.circular(40.0)),
                       boxShadow: <BoxShadow>[
@@ -39,8 +48,8 @@ class ProfileScreenState extends State<ProfileScreen> {
                       child: new Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          new Text("Rohan Panda",style: new TextStyle(fontSize: 20.0,fontWeight: FontWeight.w700),textAlign: TextAlign.left,),
-                          new Text("rohan.panda1@gmail.com",style: new TextStyle(fontSize: 15.0,fontWeight: FontWeight.w400),textAlign: TextAlign.left,),
+                          new Text(widget.userDetails.displayName,style: new TextStyle(fontSize: 20.0,fontWeight: FontWeight.w700),textAlign: TextAlign.left,),
+                          new Text(widget.userDetails.email,style: new TextStyle(fontSize: 15.0,fontWeight: FontWeight.w400),textAlign: TextAlign.left,),
                           new Container(
                             alignment: Alignment.centerLeft,
                             child: new Text("9853355155",style: new TextStyle(fontSize: 15.0,fontWeight: FontWeight.w400)),
@@ -129,7 +138,7 @@ class ProfileScreenState extends State<ProfileScreen> {
                 child: new RaisedButton(
                   child: new Text("Logout",style: new TextStyle(fontSize: 20.0,color: Colors.white),),
                   color: Colors.black,
-                  onPressed: () => print("logout"),
+                  onPressed: ()=> signOutHandler()
                 )
               )
             )
@@ -137,6 +146,25 @@ class ProfileScreenState extends State<ProfileScreen> {
         )
       ),
     );
+  }
+
+  // _signOut() {
+  //   signOutHandler().then(
+  //     runApp(
+  //     new MaterialApp(
+  //       home: new LoginScreen(),
+  //     )
+  //   ));
+  // }
+
+
+  signOutHandler() async {
+    print("logging out.");
+    FirebaseAuth.instance.signOut();
+    runApp(
+      new MaterialApp(
+        home: new LoginScreen(),
+      ));
   }
 
   Widget _buildExpansion(text,icon,isExpanded)

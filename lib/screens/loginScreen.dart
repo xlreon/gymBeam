@@ -15,6 +15,7 @@ final FirebaseAuth _auth = FirebaseAuth.instance;
 final GoogleSignIn googleSignIn = new GoogleSignIn();
 
 bool loggedIn = false;
+var userDetails;
 
 Future<FirebaseUser> _signIn() async{
   GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
@@ -26,6 +27,7 @@ Future<FirebaseUser> _signIn() async{
 
   print(user.displayName);
   setState(() {
+      userDetails = user;
       loggedIn = true;
     });
   return user;
@@ -69,7 +71,7 @@ Widget _loginScreen() {
 }
 
 Widget _homeScreen() {
-  return new GymBeam();
+  return new GymBeam(userDetails: userDetails,auth: _auth);
 }
 
 

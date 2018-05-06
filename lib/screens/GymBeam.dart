@@ -10,7 +10,20 @@ import './editprofileScreen.dart';
 import './chooseMemScreen.dart';
 import './sessionScreen.dart';
 
-class GymBeam extends StatelessWidget {
+class GymBeam extends StatefulWidget {
+
+  GymBeam({this.userDetails,this.auth});
+  final userDetails;
+  final auth;
+
+
+  @override
+  GymBeamState createState() => new GymBeamState();
+}
+
+
+class GymBeamState extends State<GymBeam> {
+  
   
   final ThemeData kIOSTheme = new ThemeData(
     primarySwatch: Colors.blue,
@@ -29,7 +42,7 @@ class GymBeam extends StatelessWidget {
     return new MaterialApp(
       title: 'Gym Beam',
       routes: <String, WidgetBuilder>{
-        '/profile': (BuildContext context) => new ProfileScreen(),
+        '/profile': (BuildContext context) => new ProfileScreen(userDetails: widget.userDetails),
         '/search': (BuildContext context) => new SearchGym(),
         '/gymDetails': (BuildContext context) => new GymDetails(),
         '/trainerDetails': (BuildContext context) => new TrainerDetailsScreen(),
@@ -42,7 +55,7 @@ class GymBeam extends StatelessWidget {
       theme: defaultTargetPlatform == TargetPlatform.iOS
             ? kIOSTheme
             : kDefaultTheme,
-      home : new MainScreen()
+      home : new MainScreen(userDetails: widget.userDetails,auth: widget.auth)
     );
   }
 }
