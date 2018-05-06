@@ -21,13 +21,13 @@ class GymDetailsPage extends StatelessWidget {
         leading: new IconButton(
           icon: new Icon(
             Icons.arrow_back,
-            color: Colors.black, size: 30.0,
+            // color: Colors.white, size: 30.0,
           ),
+          color: Colors.black,
           onPressed: () => Navigator.of(context).pop()
         ),
-        title: new Text("GYM INFO",style: new TextStyle(color: Colors.black)),
         backgroundColor: Colors.white,
-
+        title: new Text("Gym Info",style: new TextStyle(color: Colors.black),),
         elevation: 8.0,
         actions: <Widget>[
           new IconButton(
@@ -85,7 +85,7 @@ class GymDetailsPage extends StatelessWidget {
                     child: new Text("Book Now",style: new TextStyle(fontSize: 18.0),),
                     color: Colors.orangeAccent,
                     // textColor: Colors.white,
-                    onPressed: () => print("book now pressed"),
+                    onPressed: () => Navigator.of(context).pushNamed('/chooseMemScreen'),
                   )
                 )
               ],
