@@ -26,9 +26,6 @@ Future<FirebaseUser> _signIn() async{
 
 }
 
-void login() {
-  _signIn().then((FirebaseUser user)=>print(user)).catchError((e)=>print(e));
-}
 
 @override
   Widget build(BuildContext context) {
@@ -36,25 +33,31 @@ void login() {
       home: new Scaffold(
         body: new Container(
           child: new Center(
-            child: new ButtonBar(
-              alignment: MainAxisAlignment.center,
+            child: new Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                new Image.asset("assets/images/google.png"),
-                new RaisedButton(
-                  color: Colors.black,
-                  textColor: Colors.white,
-                  child: new Text("Login with Google",
-                  style:new TextStyle(fontSize: 20.0)),
-                  onPressed: () => _signIn().then((FirebaseUser user)=>print(user)).catchError((e)=>print(e)),
+                    new Container(
+                  width: 290.0,
+                child: new RaisedButton(
+                      elevation: 5.0,
+                      color: Colors.white,
+                      textColor: Colors.black,
+                      onPressed: () => _signIn().then((FirebaseUser user)=>print(user)).catchError((e)=>print(e)),
+                      child: new Row(
+                        children: <Widget>[
+                          new Image.asset("assets/images/google.png",
+                          alignment: Alignment.center,
+                          ),
+                          new Container(
+                            child: new Text("Login with Google",style:new TextStyle(fontSize: 20.0)),
+                            padding: new EdgeInsets.all(10.0),
+                          )
+                        ],
+                      )
+                    )
                 ),
               ],
             )
-            // new RaisedButton(
-            //   color: Colors.black,
-            //   textColor: Colors.white,
-            //   child: new Text("Login"),
-            //   onPressed: () => _signIn().then((FirebaseUser user)=>print(user)).catchError((e)=>print(e)),
-            // ),
           ),
         )
       )

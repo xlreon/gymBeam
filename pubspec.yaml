@@ -13,7 +13,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  google_sign_in: "^3.0.2"                                       # new                                   # new
+  google_sign_in: "^3.0.2"                                # new                                   # new
   firebase_auth: "^0.5.5"                                           # new
 
 # For information on the generic Dart part of this file, see the
@@ -45,3 +45,4 @@ flutter:
     - assets/images/louis.png
     - assets/images/ruppee.png
     - assets/images/google.png
+    - assets/images/facebook.png
