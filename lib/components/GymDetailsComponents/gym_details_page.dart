@@ -51,13 +51,13 @@ class GymDetailsPage extends StatelessWidget {
                     padding: const EdgeInsets.all(20.0),
                     child: new GymDescription(gym.description),
                   ),
-                  // new PhotoScroller(gym.photoUrls),
+                  new PhotoScroller(gym.photoUrls),
                   new Padding(
                     padding: const EdgeInsets.only(
                       top: 20.0,
                       bottom: 50.0,
                     ),
-                    // child: new TrainerScroller(gym.trainers),
+                    child: new TrainerScroller(gym.trainers),
                   ),
                 ],
               ),
