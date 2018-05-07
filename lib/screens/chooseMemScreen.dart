@@ -37,16 +37,15 @@ class ChooseMemScreenState extends State<ChooseMemScreen> {
         elevation: 8.0,
       ),
       body: new Container(
-        padding: new EdgeInsets.only(top: 20.0),
+        padding: new EdgeInsets.symmetric(vertical: 50.0,horizontal: 10.0),
         child: new Column(
           children: <Widget>[
             new Container(
-              margin: new EdgeInsets.only(top:20.0, left:20.0, bottom: 20.0),
               alignment: Alignment.centerLeft,
-              child: new Text("Choose your Plan",style: new TextStyle(fontSize: 40.0),),
+              child: new Text("Choose your Plan",style: new TextStyle(fontSize: 40.0,fontWeight: FontWeight.bold),),
             ),
             new Container(
-              margin: new EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+              margin: new EdgeInsets.only(top:10.0),
               child: new Row(
                 children: <Widget>[
                   new Radio(value: "session",groupValue: selectedPlan,onChanged: (String value){onChanged(value);},),
@@ -55,7 +54,7 @@ class ChooseMemScreenState extends State<ChooseMemScreen> {
               )
             ),
             new Container(
-              margin: new EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0), 
+              margin: new EdgeInsets.only(top:10.0),
               child: new Row(
                 children: <Widget>[
                   new Radio(value: "membership",groupValue: selectedPlan,onChanged: (String value){onChanged(value);},),

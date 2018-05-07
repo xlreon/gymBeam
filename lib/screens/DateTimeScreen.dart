@@ -65,7 +65,7 @@ class DateTimeScreenState extends State<DateTimeScreen> {
     Navigator.push(
       context,
       new MaterialPageRoute(
-        builder: (context) => new AmountScreen(),
+        builder: (context) => new AmountScreen(sessions: widget.sessions),
       ),
     );
   }
@@ -90,9 +90,6 @@ class SessionCardState extends State<SessionCard>
   TimeOfDay _time = new TimeOfDay.now();
   String new_time = "Select Time";
   Color time_color = Colors.grey;
-
-  final TextEditingController _nameController = new TextEditingController();
-  final TextEditingController _phoneController = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {

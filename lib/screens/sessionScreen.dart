@@ -33,7 +33,7 @@ var _selectedNumber = 1;
             new Container(
               margin: new EdgeInsets.only(top:20.0, left:20.0, bottom: 20.0),
               alignment: Alignment.centerLeft,
-              child: new Text("Total Number of sessions?",style: new TextStyle(fontSize: 40.0),),
+              child: new Text("Total Number of sessions?",style: new TextStyle(fontSize: 40.0,fontWeight: FontWeight.bold),),
             ),
             new GestureDetector(
               child:new Container(

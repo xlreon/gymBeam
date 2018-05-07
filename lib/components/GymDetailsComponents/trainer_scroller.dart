@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'models.dart';
+import '../../screens/TrainerScreen.dart';
 
 class TrainerScroller extends StatelessWidget {
   TrainerScroller(this.trainers);
@@ -10,7 +11,7 @@ class TrainerScroller extends StatelessWidget {
     var actor = trainers[index];
 
     return new InkWell(
-      onTap: () => Navigator.of(ctx).pushNamed('/trainerDetails'),
+      onTap: () => _trainerDetailsPage(ctx),
       child: new Padding(
         padding: const EdgeInsets.only(right: 16.0),
         child: new Column(
@@ -53,6 +54,16 @@ class TrainerScroller extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  void _trainerDetailsPage(context)
+  {
+    Navigator.push(
+      context,
+      new MaterialPageRoute(
+        builder: (context) => new TrainerDetailsScreen(),
+      ),
     );
   }
 }
