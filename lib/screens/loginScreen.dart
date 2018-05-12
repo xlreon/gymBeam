@@ -63,19 +63,7 @@ Widget _homeScreen() {
               store: store,
               child: new StoreConnector(
               converter: (store) => store.state.loggedIn,
-              builder: 
-              (context,loggedIn){
-                print(loggedIn);
-                if(loggedIn)return new Scaffold(
-                  body: new Container(
-                    child: new Center(
-                      child: new Text("Home"),
-                    ),
-                  ),
-                );
-                else
-                return _loginScreen();
-              }
+              builder:(context,loggedIn)=>loggedIn?_homeScreen():_loginScreen()
             )
           )
     );
