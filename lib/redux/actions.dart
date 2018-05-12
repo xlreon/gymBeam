@@ -1,1 +1,1 @@
-enum Actions { Login }
+enum Actions { Login, ChangeScreen }

@@ -47,7 +47,7 @@ class GymBeam extends StatelessWidget {
             : kDefaultTheme,
       home : new StoreProvider(
         store: store,
-        child: new MainScreen(userDetails: store.state.user,auth: store.state.auth))
+        child: new MainScreen())
     );
   }
 }
