@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import './GymBeam.dart';
-import 'dart:async';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 import '../redux/reducers.dart'; 
 import '../redux/appState.dart';
 import '../redux/actions.dart';
+import '../firebase.dart';
+
 
 class LoginScreen extends StatelessWidget {
 
@@ -22,7 +23,7 @@ Widget _loginScreen() {
                     width: 290.0,
                   child: new StoreConnector<dynamic,VoidCallback>(
                           converter: (store) {
-                            return ()=> store.dispatch(Actions.Login);
+                            return ()=> signIn().then((user)=>store.dispatch(Actions.Login));
                           },
                           builder: (context,callback) => new RaisedButton(
                           elevation: 5.0,
@@ -62,7 +63,19 @@ Widget _homeScreen() {
               store: store,
               child: new StoreConnector(
               converter: (store) => store.state.loggedIn,
-              builder: (context,loggedIn)=> loggedIn ? _homeScreen() : _loginScreen(),
+              builder: 
+              (context,loggedIn){
+                print(loggedIn);
+                if(loggedIn)return new Scaffold(
+                  body: new Container(
+                    child: new Center(
+                      child: new Text("Home"),
+                    ),
+                  ),
+                );
+                else
+                return _loginScreen();
+              }
             )
           )
     );
