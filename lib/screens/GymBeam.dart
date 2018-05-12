@@ -46,7 +46,7 @@ class GymBeamState extends State<GymBeam> {
         '/search': (BuildContext context) => new SearchGym(),
         '/gymDetails': (BuildContext context) => new GymDetails(),
         '/trainerDetails': (BuildContext context) => new TrainerDetailsScreen(),
-        '/profile/edit': (BuildContext context) => new EditProfileScreen(),
+        '/profile/edit': (BuildContext context) => new EditProfileScreen(userDetails: widget.userDetails,),
         '/chooseMemScreen': (BuildContext context) => new ChooseMemScreen(),
         '/sessionScreen': (BuildContext context) => new SessionScreen(),
         // '/applyMemScreen': (BuildContext context) => new ApplyMemScreen(ChooseMemScreen.plan),

@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 class EditProfileScreen extends StatefulWidget {
+
+  EditProfileScreen({this.userDetails});
+  var userDetails;
+
   @override
   EditProfileScreenState createState() => new EditProfileScreenState();
 }
@@ -42,7 +46,7 @@ class EditProfileScreenState extends State<EditProfileScreen> {
                   width: 100.0, height: 100.0,
                   decoration: new BoxDecoration(
                     image: new DecorationImage(
-                        image: new AssetImage("assets/images/rohan.jpg"),
+                        image: new NetworkImage(widget.userDetails.photoUrl),
                         fit: BoxFit.cover),
                     borderRadius: new BorderRadius.all(new Radius.circular(50.0)),
                     boxShadow: <BoxShadow>[
@@ -75,7 +79,7 @@ class EditProfileScreenState extends State<EditProfileScreen> {
                     margin: new EdgeInsets.symmetric(vertical: 10.0),
                     child: new TextField(
                       autofocus: true,
-                      decoration: new InputDecoration(hintText: "Name"),
+                      decoration: new InputDecoration(hintText: widget.userDetails.displayName),
                       controller: _nameController,
                     ),
                   ),
