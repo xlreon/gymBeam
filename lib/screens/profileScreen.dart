@@ -1,24 +1,20 @@
 import 'package:flutter/material.dart';
-import '../components/ProfileBanner.dart';
-import 'dart:async';
 import './loginScreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-class ProfileScreen extends StatefulWidget {
+import '../redux/appState.dart';
+import '../redux/actions.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import '../variables.dart' as variables;
 
-  ProfileScreen({this.userDetails,this.auth});
-  final userDetails;
-  final auth;
-  @override
-  ProfileScreenState createState() => new ProfileScreenState();
-}
 
-class ProfileScreenState extends State<ProfileScreen> {
+class ProfileScreen extends StatelessWidget {
   
   var account=[false,false,false];
   var other=[false,false];
+
 @override
   Widget build(BuildContext context) {
-  print(widget.userDetails);
+  print(store.state.user);
     return new Scaffold(
       body: new Container(
         padding: new EdgeInsets.symmetric(horizontal:10.0),
@@ -32,7 +28,7 @@ class ProfileScreenState extends State<ProfileScreen> {
                     width: 80.0, height: 80.0,
                     decoration: new BoxDecoration(
                       image: new DecorationImage(
-                          image: new NetworkImage(widget.userDetails.photoUrl),
+                          image: new NetworkImage(store.state.user.photoUrl),
                           fit: BoxFit.cover),
                       borderRadius: new BorderRadius.all(new Radius.circular(40.0)),
                       boxShadow: <BoxShadow>[
@@ -48,8 +44,8 @@ class ProfileScreenState extends State<ProfileScreen> {
                       child: new Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          new Text(widget.userDetails.displayName,style: new TextStyle(fontSize: 20.0,fontWeight: FontWeight.w700),textAlign: TextAlign.left,),
-                          new Text(widget.userDetails.email,style: new TextStyle(fontSize: 15.0,fontWeight: FontWeight.w400),textAlign: TextAlign.left,),
+                          new Text(store.state.user.displayName,style: new TextStyle(fontSize: 20.0,fontWeight: FontWeight.w700),textAlign: TextAlign.left,),
+                          new Text(store.state.user.email,style: new TextStyle(fontSize: 15.0,fontWeight: FontWeight.w400),textAlign: TextAlign.left,),
                           new Container(
                             alignment: Alignment.centerLeft,
                             child: new Text("9853355155",style: new TextStyle(fontSize: 15.0,fontWeight: FontWeight.w400)),
@@ -79,29 +75,34 @@ class ProfileScreenState extends State<ProfileScreen> {
               child: new Text("Account",style: new TextStyle(fontSize: 25.0,fontWeight: FontWeight.w700)),
             ),
             new Container(
-              child: new ExpansionPanelList(
-                expansionCallback: (int index, bool isExpanded) {
-                  setState(() {
-                    account[index] = !isExpanded;
-                  });
-                },
+              child: new StoreConnector<dynamic,dynamic>(
+            converter: (store) {
+              return (int index, bool isExpanded)
+              { 
+                variables.account[index] = !isExpanded;
+                store.dispatch(Actions.ExpandPanel);
+              };
+            },
+            builder: (context,callback) => new ExpansionPanelList(
+                expansionCallback: callback,
                 children: [
                   new ExpansionPanel(
                     body: new Center(child: new Text("Wishlist"),),
-                    isExpanded: account[0],
+                    isExpanded: variables.account[0],
                     headerBuilder: (BuildContext context,bool isExpanded) => _buildExpansion("Bookings", Icons.bookmark_border,isExpanded),
                   ),
                   new ExpansionPanel(
                     body: new Center(child: new Text("Wishlist"),),
-                    isExpanded: account[1],
+                    isExpanded: variables.account[1],
                     headerBuilder: (BuildContext context,bool isExpanded) => _buildExpansion("Wishlist", Icons.favorite_border,isExpanded),
                   ),
                   new ExpansionPanel(
                     body: new Center(child: new Text("Wishlist"),),
-                    isExpanded: account[2],
+                    isExpanded: variables.account[2],
                     headerBuilder: (BuildContext context,bool isExpanded) => _buildExpansion("Wallet", Icons.account_balance_wallet,isExpanded),
                   )
                 ],
+              )
               ),
             ),
             new Container(
@@ -111,25 +112,30 @@ class ProfileScreenState extends State<ProfileScreen> {
             ),
             new Container(
               // padding: new EdgeInsets.symmetric(vertical: 10.0),
-              child: new ExpansionPanelList(
-                expansionCallback: (int index, bool isExpanded) {
-                  setState(() {
-                    other[index] = !isExpanded;
-                  });
-                },
+              child: new StoreConnector<dynamic,dynamic>(
+            converter: (store) {
+              return (int index, bool isExpanded)
+              { 
+                variables.other[index] = !isExpanded;
+                store.dispatch(Actions.ExpandPanel);
+              };
+            },
+            builder: (context,callback) => new ExpansionPanelList(
+                expansionCallback: callback,
                 children: [
                   new ExpansionPanel(
                     body: new Center(child: new Text("Wishlist"),),
-                    isExpanded: other[0],
+                    isExpanded: variables.other[0],
                     headerBuilder: (BuildContext context,bool isExpanded) => _buildExpansion("Help & Support", Icons.help_outline,isExpanded),
                   ),
                   new ExpansionPanel(
                     body: new Center(child: new Text("Wishlist"),),
-                    isExpanded: other[1],
+                    isExpanded: variables.other[1],
                     headerBuilder: (BuildContext context,bool isExpanded) => _buildExpansion("Refer & Earn", Icons.share,isExpanded),
                   ),
                 ],
               ),
+            )
             ),
             new Center(
               child: new Container(

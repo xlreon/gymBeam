@@ -19,6 +19,10 @@ AppState reducers(AppState prev,action) {
     prev.currentScreen = variables.screens[variables.index];
     return prev;
     break;
+    case Actions.ExpandPanel:
+    print("in expand panel");
+    return prev;
+    break;
     default: return prev;
   }
 }

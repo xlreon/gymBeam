@@ -32,7 +32,7 @@ class GymBeam extends StatelessWidget {
     return new MaterialApp(
       title: 'Gym Beam',
       routes: <String, WidgetBuilder>{
-        '/profile': (BuildContext context) => new ProfileScreen(userDetails: store.state.user),
+        '/profile': (BuildContext context) => new ProfileScreen(),
         '/search': (BuildContext context) => new SearchGym(),
         '/gymDetails': (BuildContext context) => new GymDetails(),
         '/trainerDetails': (BuildContext context) => new TrainerDetailsScreen(),

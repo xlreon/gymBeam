@@ -13,7 +13,7 @@ final List screens = [
   new Scaffold(
     body: new PayScreen()
   ),
-  new Scaffold( body: new ProfileScreen(userDetails: store.state.user,auth: store.state.auth,))
+  new Scaffold( body: new ProfileScreen())
 ];
 
 // Array of toolbar items
@@ -31,3 +31,6 @@ final toolbarItems = [
     title: new Text("profile")
   )
 ];
+
+var account=[false,false,false];
+var other=[false,false];
