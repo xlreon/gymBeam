@@ -23,6 +23,15 @@ AppState reducers(AppState prev,action) {
     print("in expand panel");
     return prev;
     break;
+    case Actions.Logout:
+    print("in logout");
+    prev.auth.signOut();
+    prev.user = null;
+    prev.googleSignIn = null;
+    prev.auth = null;
+    prev.loggedIn = false;
+    return prev;
+    break;
     default: return prev;
   }
 }

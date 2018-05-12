@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import './loginScreen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import '../redux/appState.dart';
 import '../redux/actions.dart';
 import 'package:flutter_redux/flutter_redux.dart';
@@ -141,36 +139,25 @@ class ProfileScreen extends StatelessWidget {
               child: new Container(
                 padding: new EdgeInsets.only(top:20.0),
                 width: 200.0,
-                child: new RaisedButton(
+                child: new StoreConnector<dynamic,VoidCallback>(
+            converter: (store) {
+              return ()
+              { 
+                store.dispatch(Actions.Logout);
+              };
+            },
+            builder: (context,callback)=>new RaisedButton(
                   child: new Text("Logout",style: new TextStyle(fontSize: 20.0,color: Colors.white),),
                   color: Colors.black,
-                  onPressed: ()=> signOutHandler()
+                  onPressed: callback
                 )
+              )
               )
             )
           ],
         )
       ),
     );
-  }
-
-  // _signOut() {
-  //   signOutHandler().then(
-  //     runApp(
-  //     new MaterialApp(
-  //       home: new LoginScreen(),
-  //     )
-  //   ));
-  // }
-
-
-  signOutHandler() async {
-    print("logging out.");
-    FirebaseAuth.instance.signOut();
-    runApp(
-      new MaterialApp(
-        home: new LoginScreen(),
-      ));
   }
 
   Widget _buildExpansion(text,icon,isExpanded)
