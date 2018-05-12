@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 import './GymBeam.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:redux/redux.dart';
-import '../redux/reducers.dart'; 
 import '../redux/appState.dart';
 import '../redux/actions.dart';
 import '../firebase.dart';
 
 
 class LoginScreen extends StatelessWidget {
-
-final store = new Store(reducers,initialState: new AppState(loggedIn: false));
 
 Widget _loginScreen() {
   return new Scaffold(
@@ -52,7 +48,7 @@ Widget _loginScreen() {
 }
 
 Widget _homeScreen() {
-  return new GymBeam(userDetails: store.state.user,auth: store.state.auth);
+  return new GymBeam();
 }
 
 

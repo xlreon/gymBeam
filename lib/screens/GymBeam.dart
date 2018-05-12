@@ -5,24 +5,14 @@ import './profileScreen.dart';
 import './searchGym.dart';
 import './GymDetails.dart';
 import './TrainerScreen.dart';
-import './searchScreen.dart';
 import './editprofileScreen.dart';
 import './chooseMemScreen.dart';
 import './sessionScreen.dart';
-
-class GymBeam extends StatefulWidget {
-
-  GymBeam({this.userDetails,this.auth});
-  final userDetails;
-  final auth;
+import '../redux/appState.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 
 
-  @override
-  GymBeamState createState() => new GymBeamState();
-}
-
-
-class GymBeamState extends State<GymBeam> {
+class GymBeam extends StatelessWidget {
   
   
   final ThemeData kIOSTheme = new ThemeData(
@@ -42,11 +32,11 @@ class GymBeamState extends State<GymBeam> {
     return new MaterialApp(
       title: 'Gym Beam',
       routes: <String, WidgetBuilder>{
-        '/profile': (BuildContext context) => new ProfileScreen(userDetails: widget.userDetails),
+        '/profile': (BuildContext context) => new ProfileScreen(userDetails: store.state.user),
         '/search': (BuildContext context) => new SearchGym(),
         '/gymDetails': (BuildContext context) => new GymDetails(),
         '/trainerDetails': (BuildContext context) => new TrainerDetailsScreen(),
-        '/profile/edit': (BuildContext context) => new EditProfileScreen(userDetails: widget.userDetails,),
+        '/profile/edit': (BuildContext context) => new EditProfileScreen(userDetails: store.state.user,),
         '/chooseMemScreen': (BuildContext context) => new ChooseMemScreen(),
         '/sessionScreen': (BuildContext context) => new SessionScreen(),
         // '/applyMemScreen': (BuildContext context) => new ApplyMemScreen(ChooseMemScreen.plan),
@@ -55,7 +45,9 @@ class GymBeamState extends State<GymBeam> {
       theme: defaultTargetPlatform == TargetPlatform.iOS
             ? kIOSTheme
             : kDefaultTheme,
-      home : new MainScreen(userDetails: widget.userDetails,auth: widget.auth)
+      home : new StoreProvider(
+        store: store,
+        child: new MainScreen(userDetails: store.state.user,auth: store.state.auth))
     );
   }
 }

@@ -1,5 +1,7 @@
 import 'package:google_sign_in/google_sign_in.dart'; 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:redux/redux.dart';
+import '../redux/reducers.dart';
 
 class AppState {
   AppState({this.auth,this.googleSignIn,this.loggedIn,this.user});
@@ -8,3 +10,5 @@ class AppState {
   bool loggedIn = false;
   FirebaseUser user;
 }
+
+final store = new Store(reducers,initialState: new AppState(loggedIn: false));
