@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AmountScreen extends StatefulWidget {
-  @override
-  AmountScreenState createState() => new AmountScreenState();
-}
-
-class AmountScreenState extends State<AmountScreen> {
+class AmountScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
