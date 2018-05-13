@@ -124,18 +124,17 @@ class EditProfileScreen extends StatelessWidget{
                             alignment: Alignment.centerLeft,
                             child: new StoreConnector(
                               converter: (store){
-                                return (){
-                                  store.dispatch(Actions.DateOfBirth);
+                                return (BuildContext context){
+                                  datePicker(context).then((pick)=>store.dispatch(Actions.DateOfBirth));
+                                  // store.dispatch(Actions.DateOfBirth);
                                 };
                               },
                               builder:(context,callback)=> new GestureDetector(
                                 child: new Text(variables.new_date,style: new TextStyle(fontSize: 15.0,color: variables.date_color),),
-                                onTap: (){
-                                  datePicker(context);
-                                  callback();
-                                }),
+                                onTap: ()=>callback(context),
                               ),
                             ),
+                          ),
                           new Divider(color: Colors.black,),
                         ],
                       ),
