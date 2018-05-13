@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import './screens/homeScreen.dart';
 import './screens/profileScreen.dart';
 import './screens/payScreen.dart';
-import './redux/appState.dart';
+
 
 int index = 0;
 
@@ -39,3 +39,4 @@ int gender = 0;
 DateTime date = new DateTime.now();
 String new_date = "Date of Birth";
 Color date_color = Colors.grey;
+

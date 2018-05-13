@@ -1,91 +1,64 @@
 import 'package:flutter/material.dart';
-import '../components/NearbyCard.dart';
-import '../components/DealsCard.dart';
-import '../components/searchBarGym.dart';
-class HomeScreen extends StatefulWidget {
-  @override
-  HomeScreenState createState() => new HomeScreenState();
-}
+import '../redux/appState.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 
-class HomeScreenState extends State<HomeScreen> {
-
-  SearchBar searchBar;
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-    void onSubmitted(String value) {
-      print(value);
-  }
-
-  AppBar buildAppBar(BuildContext context) {
-    return new AppBar(
-        title: new Text("GYM BEAM", style: new TextStyle(color: Colors.black)),
-        backgroundColor: Colors.white,
-        elevation: 8.0,
-        actions: [searchBar.getSearchAction(context)]);
-  }
-
-  HomeScreenState() {
-    searchBar = new SearchBar(
-        inBar: false,
-        buildDefaultAppBar: buildAppBar,
-        setState: setState,
-        onSubmitted: onSubmitted);
-  }
+class HomeScreen extends StatelessWidget {
 
 @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text("GYM BEAM", style: new TextStyle(color: Colors.black,fontSize: 25.0, fontWeight: FontWeight.bold)),
-        backgroundColor: Colors.white,
-        centerTitle: false,
-        elevation: 8.0,
-        actions: <Widget>[
-          new IconButton(
-            color: Colors.black,
-            icon: new Icon(Icons.search),
-            onPressed: () => _searchBar(),
-          )
-        ],
-      ),
-      body: new Container(
-          child: new ListView(
-            children: <Widget>[
-              // new BannerComponent(),
-              new Container(
-                margin: new EdgeInsets.only(left:20.0, top: 10.0),
-                child: new Text("Hot Deals",style: new TextStyle(
-                  fontSize: 20.0
-                )),
-              ),
-              new Container(
-                margin: new EdgeInsets.all(10.0),
-                height: 200.0,
-                child: new ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: <Widget>[
-                    new DealsCard(),
-                    new DealsCard(),
-                    new DealsCard(),
-                  ],
+    return new StoreProvider(
+          store:store,
+          child: new Scaffold(
+        appBar: new AppBar(
+          title: new Text("GYM BEAM", style: new TextStyle(color: Colors.black,fontSize: 25.0, fontWeight: FontWeight.bold)),
+          backgroundColor: Colors.white,
+          centerTitle: false,
+          elevation: 8.0,
+          actions: <Widget>[
+            new IconButton(
+              color: Colors.black,
+              icon: new Icon(Icons.search),
+              onPressed: () => _searchBar(context),
+            )
+          ],
+        ),
+        body: new Container(
+            child: new ListView(
+              children: <Widget>[
+                // new BannerComponent(),
+                new Container(
+                  margin: new EdgeInsets.only(left:20.0, top: 10.0),
+                  child: new Text("Hot Deals",style: new TextStyle(
+                    fontSize: 20.0
+                  )),
                 ),
-              ),  
-              new Container(
-                margin: new EdgeInsets.only(left:20.0, top: 10.0),
-                child: new Text("Nearby You",style: new TextStyle(
-                  fontSize: 20.0
-                )),
-              ),
-              new NearbyCard(),
-              new NearbyCard(),
-              new NearbyCard(),
-            ],
-          )
+                new Container(
+                  margin: new EdgeInsets.all(10.0),
+                  height: 200.0,
+                  child: new ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: store.state.dealsCard,
+                  ),
+                ),  
+                new Container(
+                  margin: new EdgeInsets.only(left:20.0, top: 10.0),
+                  child: new Text("Nearby You",style: new TextStyle(
+                    fontSize: 20.0
+                  )),
+                ),
+                store.state.nearByCards[0],
+                store.state.nearByCards[1],
+                store.state.nearByCards[2],
+
+              ],
+            )
+        ),
       ),
     );
     
   }
 
-  void _searchBar()
+  void _searchBar(context)
   {
     Navigator.of(context).pushNamed("/search");
   }

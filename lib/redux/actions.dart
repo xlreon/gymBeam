@@ -5,5 +5,4 @@ enum Actions {
   Logout, 
   ChangeGender,
   DateOfBirth
-
   }
