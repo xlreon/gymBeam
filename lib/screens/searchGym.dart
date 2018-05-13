@@ -2,23 +2,17 @@ import 'package:flutter/material.dart';
 // import '../components/mapView.dart';
 import '../components/searchBarGym.dart';
 
-class SearchGym extends StatefulWidget {
-  @override
-  SearchGymState createState() => new SearchGymState();
-}
-
-class SearchGymState extends State<SearchGym> {
+class SearchGym extends StatelessWidget {
   SearchBar searchBar;
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
     void onSubmitted(String value) {
       print(value);
   }
 
-  SearchGymState() {
+  SearchGym() {
     searchBar = new SearchBar(
         inBar: false,
         buildDefaultAppBar: null,
-        setState: setState,
         onSubmitted: onSubmitted);
   }
 @override
