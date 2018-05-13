@@ -44,6 +44,14 @@ AppState reducers(AppState prev,action) {
       print("in select sessions");
       return prev;
     break;
+    case Actions.SelectMembership:
+      print("in select membership or session. ");
+      return prev;  
+    break;
+        case Actions.SelectMembershipType:
+      print("in select membership type. ");
+      return prev;  
+    break;
     default: return prev;
   }
 }
