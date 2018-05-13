@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'models.dart';
 import '../../screens/picScroller.dart';
+import '../../variables.dart' as variables;
 
 class PhotoScroller extends StatelessWidget {
   PhotoScroller(this.photoUrls);
@@ -14,7 +15,10 @@ class PhotoScroller extends StatelessWidget {
       onTap: () { Navigator.push(
           context,
           new MaterialPageRoute(
-            builder: (context) => new PicScroller(index:index),
+            builder: (context) {
+              variables.picIndex = index;
+              new PicScroller();
+              },
           ),
         );
       },
