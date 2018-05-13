@@ -45,4 +45,5 @@ var sessionsNumber = 1;
 var selectedPlan = "session";
 var isSelected = [true,false,false,false];
 var plan = 0;
+int picIndex=0;
 

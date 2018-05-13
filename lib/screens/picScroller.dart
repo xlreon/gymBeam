@@ -1,18 +1,7 @@
 import 'package:flutter/material.dart';
+import '../variables.dart' as variables;
 
-class PicScroller extends StatefulWidget {
-
-  PicScroller({this.index});
-  final int index;
-
-  @override
-  PicScrollerState createState() => new PicScrollerState(index: index);
-}
-
-class PicScrollerState extends State<PicScroller> {
-
-  PicScrollerState({this.index});
-  final int index;
+class PicScroller extends StatelessWidget {
 
 @override
   Widget build(BuildContext context) {
@@ -32,7 +21,7 @@ class PicScrollerState extends State<PicScroller> {
         elevation: 8.0,
       ),
       body: new Container(
-        child:new Center(child: new Text(index.toString()),)
+        child:new Center(child: new Text(variables.picIndex.toString()),)
       ),
     );
   }
