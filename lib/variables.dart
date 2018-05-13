@@ -34,3 +34,8 @@ final toolbarItems = [
 
 var account=[false,false,false];
 var other=[false,false];
+
+int gender = 0;
+DateTime date = new DateTime.now();
+String new_date = "Date of Birth";
+Color date_color = Colors.grey;
