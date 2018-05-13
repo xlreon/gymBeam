@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import '../components/PayBanner.dart';
-class PayScreen extends StatefulWidget {
-  @override
-  PayScreenState createState() => new PayScreenState();
-}
 
-class PayScreenState extends State<PayScreen> {
+
+class PayScreen extends StatelessWidget {
 @override
   Widget build(BuildContext context) {
     return new Container(
