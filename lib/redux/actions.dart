@@ -4,5 +4,6 @@ enum Actions {
   ExpandPanel, 
   Logout, 
   ChangeGender,
-  DateOfBirth
+  DateOfBirth,
+  SelectSessions
   }

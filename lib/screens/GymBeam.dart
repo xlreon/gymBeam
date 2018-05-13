@@ -35,7 +35,7 @@ class GymBeam extends StatelessWidget {
         '/profile': (BuildContext context) => new ProfileScreen(),
         '/search': (BuildContext context) => new SearchGym(),
         '/gymDetails': (BuildContext context) => new GymDetails(),
-        '/trainerDetails': (BuildContext context) => new TrainerDetailsScreen(),
+        '/trainerDetails': (BuildContext context) => new TrainerDetails(),
         '/profile/edit': (BuildContext context) => new EditProfileScreen(),
         '/chooseMemScreen': (BuildContext context) => new ChooseMemScreen(),
         '/sessionScreen': (BuildContext context) => new SessionScreen(),

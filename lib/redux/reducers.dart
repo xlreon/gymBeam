@@ -40,6 +40,10 @@ AppState reducers(AppState prev,action) {
       print("in date of birth");
       return prev;
     break;
+    case Actions.SelectSessions:
+      print("in select sessions");
+      return prev;
+    break;
     default: return prev;
   }
 }

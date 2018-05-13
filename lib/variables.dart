@@ -40,3 +40,5 @@ DateTime date = new DateTime.now();
 String new_date = "Date of Birth";
 Color date_color = Colors.grey;
 
+var sessionsNumber = 1;
+
