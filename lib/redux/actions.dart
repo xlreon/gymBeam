@@ -5,5 +5,7 @@ enum Actions {
   Logout, 
   ChangeGender,
   DateOfBirth,
-  SelectSessions
+  SelectSessions,
+  SelectMembership,
+  SelectMembershipType
   }

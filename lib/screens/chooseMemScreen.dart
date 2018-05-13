@@ -1,157 +1,198 @@
 import 'package:flutter/material.dart';
 import 'applyMemScreen.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import '../variables.dart' as variables;
+import '../redux/appState.dart';
+import '../redux/actions.dart';
 
-class ChooseMemScreen extends StatefulWidget {
-  @override
-  ChooseMemScreenState createState() => new ChooseMemScreenState();
-}
-
-class ChooseMemScreenState extends State<ChooseMemScreen> {
-
-  var selectedPlan = "session";
-  var isSelected = [true,false,false,false];
-  var plan = 0;
+class ChooseMemScreen extends StatelessWidget {
 
   void onChanged(value)
   {
-    setState(()
-    {
-      selectedPlan = value;
-    });
+      variables.selectedPlan = value;
   }
 
 @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: new AppBar(
-        leading: new IconButton(
-          icon: new Icon(
-            Icons.arrow_back,
-            // color: Colors.white, size: 30.0,
+    return new StoreProvider(
+          store: store,
+          child: Scaffold(
+        appBar: new AppBar(
+          leading: new IconButton(
+            icon: new Icon(
+              Icons.arrow_back,
+              // color: Colors.white, size: 30.0,
+            ),
+            color: Colors.black,
+            onPressed: () => Navigator.of(context).pop()
           ),
-          color: Colors.black,
-          onPressed: () => Navigator.of(context).pop()
+          backgroundColor: Colors.white,
+          // title: new Text("Gym Info"),
+          elevation: 8.0,
         ),
-        backgroundColor: Colors.white,
-        // title: new Text("Gym Info"),
-        elevation: 8.0,
-      ),
-      body: new Container(
-        padding: new EdgeInsets.only(top: 20.0),
-        child: new Column(
-          children: <Widget>[
-            new Container(
-              margin: new EdgeInsets.only(top:20.0, left:20.0, bottom: 20.0),
-              alignment: Alignment.centerLeft,
-              child: new Text("Choose your Plan",style: new TextStyle(fontSize: 40.0),),
-            ),
-            new Container(
-              margin: new EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-              child: new Row(
-                children: <Widget>[
-                  new Radio(value: "session",groupValue: selectedPlan,onChanged: (String value){onChanged(value);},),
-                  new Text("Take Sessions",style: new TextStyle(fontSize: 20.0),),
-                ]
-              )
-            ),
-            new Container(
-              margin: new EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0), 
-              child: new Row(
-                children: <Widget>[
-                  new Radio(value: "membership",groupValue: selectedPlan,onChanged: (String value){onChanged(value);},),
-                  new Text("Take Membership",style: new TextStyle(fontSize: 20.0),),
-                ],
+        body: new Container(
+          padding: new EdgeInsets.only(top: 20.0),
+          child: new Column(
+            children: <Widget>[
+              new Container(
+                margin: new EdgeInsets.only(top:20.0, left:20.0, bottom: 20.0),
+                alignment: Alignment.centerLeft,
+                child: new Text("Choose your Plan",style: new TextStyle(fontSize: 40.0),),
               ),
-            ),
-            selectedPlan == "membership" ? new Container(
-              margin: new EdgeInsets.all(10.0),
-              child: new Column(
-                children: <Widget>[
+              new Container(
+                margin: new EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                child: new Row(
+                  children: <Widget>[
+                    new StoreConnector(
+                      converter: (store){
+                        return (String value) {
+                          onChanged(value);
+                          store.dispatch(Actions.SelectMembership);
+                        };
+                      },
+                      builder:(context,callback)=> new Radio(value: "session",groupValue: variables.selectedPlan,onChanged: callback,)),
+                    new Text("Take Sessions",style: new TextStyle(fontSize: 20.0),),
+                  ]
+                )
+              ),
+              new Container(
+                margin: new EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0), 
+                child: new Row(
+                  children: <Widget>[
+                    new StoreConnector(
+                      converter: (store) {
+                        return (String value) {
+                          onChanged(value);
+                          store.dispatch(Actions.SelectMembership);
+                        };
+                      },
+                      builder:(context,callback)=> new Radio(value: "membership",groupValue: variables.selectedPlan,onChanged: callback,)),
+                    new Text("Take Membership",style: new TextStyle(fontSize: 20.0),),
+                  ],
+                ),
+              ),
+              variables.selectedPlan == "membership" ? new Container(
+                margin: new EdgeInsets.all(10.0),
+                child: new Column(
+                  children: <Widget>[
+                      new Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                        new Container(
+                          height: 50.0,
+                          width: 160.0,
+                          child: new StoreConnector(
+                              converter: (store) {
+                                return (int index) {
+                                _buttonSelected(index);
+                                store.dispatch(Actions.SelectMembershipType);
+                                };
+                              },
+                              builder:(context,callback)=> new RaisedButton(
+                              color: variables.isSelected[0] ? Colors.orangeAccent : Colors.white,
+                              onPressed: () => callback(0),
+                              child: new Row(
+                                children: <Widget>[
+                                  variables.isSelected[0] ? new Icon(Icons.check) : new Container(),
+                                  new Text("Monthly", style: new TextStyle(fontSize: 20.0),),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        new Container(width: 10.0,),
+                        new Container(
+                          height: 50.0,
+                          width: 160.0,
+                          child: new StoreConnector(
+                              converter: (store) {
+                                return (int index) {
+                                  _buttonSelected(index);
+                                  store.dispatch(Actions.SelectMembershipType);
+                                };
+                              },
+                              builder:(context,callback)=> new RaisedButton(
+                              color: variables.isSelected[1] ? Colors.orangeAccent : Colors.white,
+                              onPressed: () => callback(1),
+                              child: new Row(
+                                children: <Widget>[
+                                  variables.isSelected[1] ? new Icon(Icons.check) : new Container(),
+                                  new Text("Quarterly", style: new TextStyle(fontSize: 20.0),),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    new Container(height: 10.0,),
                     new Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                      new Container(
-                        height: 50.0,
-                        width: 160.0,
-                        child: new RaisedButton(
-                          color: isSelected[0] ? Colors.orangeAccent : Colors.white,
-                          onPressed: () => _buttonSelected(0),
-                          child: new Row(
-                            children: <Widget>[
-                              isSelected[0] ? new Icon(Icons.check) : new Container(),
-                              new Text("Monthly", style: new TextStyle(fontSize: 20.0),),
-                            ],
+                        new Container(
+                          height: 50.0,
+                          width: 160.0,
+                          child: new StoreConnector(
+                              converter: (store) {
+                                return (int index) {
+                                  _buttonSelected(index);
+                                  store.dispatch(Actions.SelectMembershipType);
+                                };
+                              },  
+                              builder:(context,callback)=> new RaisedButton(
+                              color: variables.isSelected[2] ? Colors.orangeAccent : Colors.white,
+                              onPressed: () => callback(2),
+                              child: new Row(
+                                children: <Widget>[
+                                  variables.isSelected[2] ? new Icon(Icons.check) : new Container(),
+                                  new Text("Half Yearly", style: new TextStyle(fontSize: 20.0),),
+                                ],
+                              ),
+                            ),
                           ),
                         ),
-                      ),
-                      new Container(width: 10.0,),
-                      new Container(
-                        height: 50.0,
-                        width: 160.0,
-                        child: new RaisedButton(
-                          color: isSelected[1] ? Colors.orangeAccent : Colors.white,
-                          onPressed: () => _buttonSelected(1),
-                          child: new Row(
-                            children: <Widget>[
-                              isSelected[1] ? new Icon(Icons.check) : new Container(),
-                              new Text("Quarterly", style: new TextStyle(fontSize: 20.0),),
-                            ],
+                        new Container(width: 10.0,),
+                        new Container(
+                          height: 50.0,
+                          width: 160.0,
+                          child: new StoreConnector(
+                              converter: (store){
+                                return (int index) {
+                                  _buttonSelected(index);
+                                  store.dispatch(Actions.SelectMembershipType);
+                                };
+                              },  
+                              builder:(context,callback)=> new RaisedButton(
+                              color: variables.isSelected[3] ? Colors.orangeAccent : Colors.white,
+                              onPressed: () => callback(3),
+                              child: new Row(
+                                children: <Widget>[
+                                  variables.isSelected[3] ? new Icon(Icons.check) : new Container(),
+                                  new Text("Yearly", style: new TextStyle(fontSize: 20.0),),
+                                ],
+                              ),
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    )
+                  ],
+                ),
+              ) : new Container(),
+              new Container(
+                margin: new EdgeInsets.only(top:30.0),
+                child: new Center(
+                  // margin: new EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0), 
+                  child: new RaisedButton(
+                    child: new Text("Proceed", style: new TextStyle(fontSize: 25.0,color: Colors.white),),
+                    color: Colors.black,
+                    padding: new EdgeInsets.symmetric(horizontal:40.0, vertical: 10.0),
+                    onPressed: () => _proceedButton(context),
                   ),
-                  new Container(height: 10.0,),
-                  new Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      new Container(
-                        height: 50.0,
-                        width: 160.0,
-                        child: new RaisedButton(
-                          color: isSelected[2] ? Colors.orangeAccent : Colors.white,
-                          onPressed: () => _buttonSelected(2),
-                          child: new Row(
-                            children: <Widget>[
-                              isSelected[2] ? new Icon(Icons.check) : new Container(),
-                              new Text("Half Yearly", style: new TextStyle(fontSize: 20.0),),
-                            ],
-                          ),
-                        ),
-                      ),
-                      new Container(width: 10.0,),
-                      new Container(
-                        height: 50.0,
-                        width: 160.0,
-                        child: new RaisedButton(
-                          color: isSelected[3] ? Colors.orangeAccent : Colors.white,
-                          onPressed: () => _buttonSelected(3),
-                          child: new Row(
-                            children: <Widget>[
-                              isSelected[3] ? new Icon(Icons.check) : new Container(),
-                              new Text("Yearly", style: new TextStyle(fontSize: 20.0),),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            ) : new Container(),
-            new Container(
-              margin: new EdgeInsets.only(top:30.0),
-              child: new Center(
-                // margin: new EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0), 
-                child: new RaisedButton(
-                  child: new Text("Proceed", style: new TextStyle(fontSize: 25.0,color: Colors.white),),
-                  color: Colors.black,
-                  padding: new EdgeInsets.symmetric(horizontal:40.0, vertical: 10.0),
-                  onPressed: () => _proceedButton(),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -160,18 +201,16 @@ class ChooseMemScreenState extends State<ChooseMemScreen> {
   void _buttonSelected(index)
   {
     // print(index);
-    setState(() {
       for (var i = 0; i < 4; i++) {
-        isSelected[i] = false;
+        variables.isSelected[i] = false;
       }
-      isSelected[index]=true;
-      plan = index;
-    });
+      variables.isSelected[index]=true;
+      variables.plan = index;
   }
 
-  void _proceedButton()
+  void _proceedButton(context)
   {
-    if(selectedPlan == "session")
+    if(variables.selectedPlan == "session")
     {
       Navigator.of(context).pushNamed('/sessionScreen');
     }
@@ -180,7 +219,7 @@ class ChooseMemScreenState extends State<ChooseMemScreen> {
       Navigator.push(
         context,
         new MaterialPageRoute(
-          builder: (context) => new ApplyMemScreen(plan: plan),
+          builder: (context) => new ApplyMemScreen(plan: variables.plan),
         ),
       );
     }

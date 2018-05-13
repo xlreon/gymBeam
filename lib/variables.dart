@@ -42,3 +42,7 @@ Color date_color = Colors.grey;
 
 var sessionsNumber = 1;
 
+var selectedPlan = "session";
+var isSelected = [true,false,false,false];
+var plan = 0;
+
